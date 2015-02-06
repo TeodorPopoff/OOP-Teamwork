@@ -1,0 +1,6 @@
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe.config
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\Labyrinth\Labyrinth\bin\Debug\Labyrinth.pdb
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\Labyrinth\Labyrinth\obj\Debug\Labyrinth.csprojResolveAssemblyReference.cache
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\Labyrinth\Labyrinth\obj\Debug\Labyrinth.exe
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\Labyrinth\Labyrinth\obj\Debug\Labyrinth.pdb
