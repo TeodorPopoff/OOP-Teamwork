@@ -2,17 +2,19 @@
 {
     using Labyrinth.Interfaces;
 
-    abstract class GameObject : IRenderable
+    abstract class GameObject : IRenderable, ICollidable
     {
         private char[,] body;
         protected MatrixCoords coords;
-        public bool isAlive;
+        public bool IsAlive {get; set;}
+        private int team; // Used for recognize the enemies and allies
 
-        public GameObject(MatrixCoords coords, char[,] body)
+        public GameObject(MatrixCoords coords, char[,] body, int team)
         {
             this.Coords = coords;
             this.body = body;
-            this.isAlive = true;
+            this.IsAlive = true;
+            this.Team = team;
         }
 
         public MatrixCoords Coords
@@ -21,7 +23,7 @@
             {
                 return this.coords;
             }
-            protected set
+            set
             {
                 this.coords = value;
             }
@@ -42,6 +44,35 @@
             return copy;
         }
 
+        public int Team
+        {
+            get
+            {
+                return this.team;
+            }
+            protected set
+            {
+                this.team = value;
+            }
+        }
+
         public abstract void Update();
+
+        public void ChangeImage(char[,] newImage)
+        {
+            this.body = newImage;
+        }
+
+        public bool CanCollideWith(GameObject obj)
+        {
+            if (this.Coords.Row == obj.Coords.Row && this.Coords.Col == obj.Coords.Col)
+            {
+                return this.Team != obj.Team;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

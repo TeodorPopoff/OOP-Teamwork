@@ -2,7 +2,7 @@
 {
     static class ConsoleSettings
     {
-        const int ConsoleWidth = 20;
-        const int ConsoleHeight = 20;
+        public const int ConsoleWidth = 20;
+        public const int ConsoleHeight = 20;
     }
 }

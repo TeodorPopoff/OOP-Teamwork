@@ -1,13 +1,17 @@
 ﻿namespace Labyrinth.Objects
 {
+    using Labyrinth.ConsoleThings;
     using Labyrinth.Enumerations;
     using Labyrinth.Interfaces;
     using System;
 
-    class Hero : GameObject, Imovable
+    class Hero : AttackableCreature, Imovable
     {
-        public Hero(MatrixCoords coords, char[,] body)
-            :base(coords, body)
+        private const int DefaultTeam = 1;
+        private MatrixCoords oldCoords;
+
+        public Hero(MatrixCoords coords, char[,] body, double healthPoints, double defensePoints, double attackPoints, int team = Hero.DefaultTeam)
+            :base(coords, body, healthPoints, defensePoints, attackPoints, team)
         {
 
         }
@@ -21,6 +25,7 @@
         {
             int newRow = this.Coords.Row;
             int newCol = this.Coords.Col;
+            this.oldCoords = new MatrixCoords(this.Coords.Row, this.Coords.Col);
 
             switch (direction)
             {
@@ -32,14 +37,14 @@
                     break;
 
                 case Direction.Right:
-                    if (newCol + step < 20)
+                    if (newCol + step < ConsoleSettings.ConsoleWidth)
                     {
                         newCol += step;
                     }
                     break;
 
                 case Direction.Down:
-                    if (newRow + step < 20)
+                    if (newRow + step < ConsoleSettings.ConsoleHeight)
                     {
                         newRow += step;
                     }
@@ -58,6 +63,11 @@
 
             this.Coords.Row = newRow;
             this.Coords.Col = newCol;
+        }
+
+        public void MoveBack()
+        {
+            this.Coords = this.oldCoords;
         }
     }
 }
