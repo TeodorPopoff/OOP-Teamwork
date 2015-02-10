@@ -39,7 +39,7 @@
 
                 if (battle)
                 {
-                    //StartBattle(battle);
+                    StartBattle(battle);
                 }
 
                 this.renderer.ClearQueue();
@@ -54,9 +54,14 @@
             }
         }
 
+        /// <summary>
+        /// Starts the battle in other console screen
+        /// </summary>
+        /// <param name="battle">the battle which you want to start</param>
         private void StartBattle(BattleHandler battle)
         {
-            BattleEngine battleEngine = new BattleEngine(this.renderer, battle.Attacker, battle.Defender);
+            IRenderer battleRenderer = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);
+            BattleEngine battleEngine = new BattleEngine(battleRenderer, battle.Attacker, battle.Defender);
 
             battleEngine.Run();
         }

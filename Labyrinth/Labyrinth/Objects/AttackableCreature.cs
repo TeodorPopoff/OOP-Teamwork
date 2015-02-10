@@ -1,6 +1,7 @@
 ﻿namespace Labyrinth.Objects
 {
     using Labyrinth.Interfaces;
+    using System.Threading;
 
     abstract class AttackableCreature : Creature, IAttack
     {
@@ -31,6 +32,11 @@
 
         public void Attack(Creature creature)
         {
+            Thread.Sleep(500);
+            if (this.Coords.Col > creature.Coords.Col)
+            {
+
+            }
             creature.HealthPoints -= this.AttackPoints;
         }
     }
