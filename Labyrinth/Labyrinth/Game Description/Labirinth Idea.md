@@ -22,21 +22,21 @@ The Game logic:
 	- if there is an enemy a battle is fought
 			- if Torin's team wins the battle, they move forward
 			- if they loose the battle, it is Game Over
-	- if there is a friend there, he/she jpins forces with Torin's team
+	- if there is a friend there, he/she joins forces with Torin's team
 - the game is played until Torin reaches the lower right corner of the field or he is defeated by the enemies.
 
 Characters:
 
 Dwarves:
 - Torin - main player
-- Dwarves - 12 in total. Dwarves are loyal friends. Once they join the team they stay with Torin untill the end fight with him side by side.
+- Dwarves - 12 in total. Dwarves are loyal friends. Once they join the team they stay with Torin until the end fight with him side by side.
 
 Friends:
 - Elves - they are powerful friends but fairly unpredictable. You never know for how long they will stay with you or if they will flee just before a battle.
 	- Legolas
 	- Tauriel
 	- Thranduil
-- Good Wizzards - also powerfull friends, but very busy. They stay with Torin for only 1...3 moves and then they go to take care of other business.
+- Good Wizzards - also powerful friends, but very busy. They stay with Torin for only 1...3 moves and then they go to take care of other business.
 	- Gandalf the Grey
 	- Galadriel
 	- Elrond
