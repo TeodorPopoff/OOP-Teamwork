@@ -70,3 +70,42 @@ Game commands:
 - friends - prints info about the remaining friends on the playing field
 - enemies - prints info about the remaining enemies on the playing field
 
+Moves:
+- if we meet a dwarf - we join him to ThorinTeam; we increase the power of the team
+- If we meet a friend Magician:
+	- we join him to ThorinTeam for a number of moves == Magician.Presence
+	- we increase the strength of the team with Magician.SpellPower coefficient
+- if we meet enemy Magician:
+	- we decrease the strength of the team with Magician.SpellPower coefficient
+- if we meet an IFriend, not a Magician:
+	- we join him to the team
+	- we increase the strength of the team
+- if we meet an IEnemy, not a Magician:
+	- we fight a battle
+	- the team with bigger strength winns
+	- if the enemy has bigger power than ThorinTeam, we are given options:
+		- if we have eagles - to fly away to a new location
+		- if we have horses - to run away to a new location
+		- if we take either option, we remove the eagles / horses from the team (we can take advantage of them only once)
+- if we meet food:
+	- we increase our strength with X
+- if we meet weapons:
+	- we increase our strength with Y
+- if we meet eagles:
+	- we increase our flying range
+- if we meet horses:
+	- we increase our riding range
+- when the team moves:
+	- all members move together in the same direction
+	- for all Magicians on the team we do Magiciansns.Presence--
+		- when the Precense of a Magician == 0, we remove him/her from the team and we decrease the team's strength with Magician.SpellPower coefficient
+		- when we remove a Magician from the team, we relocate it to a Random new location
+	- the game prints info on allocation of nearby characters
+- when the team strength <= 0:
+	- we print Game Over Message
+	- we give options: Exit / New Game
+- when we select the command Fly Away:
+	- depending on the available flying range, the whole team is moved to another random and free location - but not closer to the destination
+- - when we select the command Ride Away:
+	- depending on the available riding range, the whole team is moved to another random and free location - but not closer to the destination
+

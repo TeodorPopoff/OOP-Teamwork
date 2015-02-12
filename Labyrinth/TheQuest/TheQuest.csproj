@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69EE2F70-54DF-4348-9175-EEB64C4BF004}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheQuest</RootNamespace>
+    <AssemblyName>TheQuest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Friends\Bears.cs" />
+    <Compile Include="Classes\Magicians\AngmarKing.cs" />
+    <Compile Include="Classes\Friends\Beorn.cs" />
+    <Compile Include="Classes\Character.cs" />
+    <Compile Include="Classes\Friends\Dwarf.cs" />
+    <Compile Include="Classes\Friends\Dwarves.cs" />
+    <Compile Include="Classes\Friends\Elves.cs" />
+    <Compile Include="Enumerations\DwarfNames.cs" />
+    <Compile Include="Classes\Friends\Eagle.cs" />
+    <Compile Include="Classes\Elves\Elrond.cs" />
+    <Compile Include="Classes\Elves\Elve.cs" />
+    <Compile Include="Classes\Elves\Galadriel.cs" />
+    <Compile Include="Engine\GameEngine.cs" />
+    <Compile Include="Classes\Magicians\Gandalf.cs" />
+    <Compile Include="Classes\Enemies\Goblin.cs" />
+    <Compile Include="Classes\Items\Food.cs" />
+    <Compile Include="Classes\Friends\Hobbit.cs" />
+    <Compile Include="Classes\Enemies\Goblins.cs" />
+    <Compile Include="Interfaces\IFly.cs" />
+    <Compile Include="Interfaces\IFlyable.cs" />
+    <Compile Include="Interfaces\IFood.cs" />
+    <Compile Include="Interfaces\IInvisible.cs" />
+    <Compile Include="Interfaces\IEnemy.cs" />
+    <Compile Include="Interfaces\IFriend.cs" />
+    <Compile Include="Interfaces\IMagician.cs" />
+    <Compile Include="Classes\Elves\Legolas.cs" />
+    <Compile Include="Classes\Magicians\Magician.cs" />
+    <Compile Include="Classes\Magicians\Necromancer.cs" />
+    <Compile Include="Classes\Enemies\Ork.cs" />
+    <Compile Include="Classes\Magicians\Radagast.cs" />
+    <Compile Include="Classes\Magicians\Saruman.cs" />
+    <Compile Include="Classes\Magicians\Sauron.cs" />
+    <Compile Include="Classes\Elves\Tauriel.cs" />
+    <Compile Include="Classes\TheQuest.cs" />
+    <Compile Include="Interfaces\IRun.cs" />
+    <Compile Include="Interfaces\Item.cs" />
+    <Compile Include="Interfaces\IWatter.cs" />
+    <Compile Include="Interfaces\IWeapon.cs" />
+    <Compile Include="Structures\Location.cs" />
+    <Compile Include="Classes\Magicians\Magicians.cs" />
+    <Compile Include="Classes\Enemies\Orks.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\Elves\Thranduil.cs" />
+    <Compile Include="Classes\Enemies\Troll.cs" />
+    <Compile Include="Classes\Enemies\Warg.cs" />
+    <Compile Include="Classes\Friends\RingBearer.cs" />
+    <Compile Include="Classes\Items\Watter.cs" />
+    <Compile Include="Classes\Items\Weapons.cs" />
+    <Compile Include="Classes\Friends\ThorinTeam.cs" />
+    <Compile Include="Classes\Enemies\Trolls.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Game Description\The Quest Idea.md" />
+    <None Include="TheQuest_Diagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

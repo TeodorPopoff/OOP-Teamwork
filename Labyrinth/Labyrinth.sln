@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth", "Labyrinth\Labyrinth.csproj", "{ECAE8F2E-B901-4FF5-8667-3BCAAEC05815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheQuest", "TheQuest\TheQuest.csproj", "{69EE2F70-54DF-4348-9175-EEB64C4BF004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ECAE8F2E-B901-4FF5-8667-3BCAAEC05815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECAE8F2E-B901-4FF5-8667-3BCAAEC05815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECAE8F2E-B901-4FF5-8667-3BCAAEC05815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69EE2F70-54DF-4348-9175-EEB64C4BF004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69EE2F70-54DF-4348-9175-EEB64C4BF004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69EE2F70-54DF-4348-9175-EEB64C4BF004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69EE2F70-54DF-4348-9175-EEB64C4BF004}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
