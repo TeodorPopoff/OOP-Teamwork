@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheQuest
 {
-    public interface IFriend : IMovable
+    public interface IFriend
     {
         int BattleStrength { get; set; }
     }

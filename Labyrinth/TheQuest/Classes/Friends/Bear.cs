@@ -2,12 +2,20 @@
 
 namespace TheQuest
 {
-    public class Weapons : Item, IWeapon
+    public class Bear : Character, IFriend
     {
-        public Weapons(string name, string description, Location position)
+        public Bear(string name, string description, Location position)
             : base(name, description, position)
         {
             
+        }
+
+        public override bool IsAlive
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public override char Symbol
@@ -18,7 +26,7 @@ namespace TheQuest
             }
         }
 
-        int IWeapon.StrengthEffect
+        int IFriend.BattleStrength
         {
             get
             {

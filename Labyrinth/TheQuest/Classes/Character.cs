@@ -1,72 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
-    public abstract class Character
+    /// <summary>
+    /// A base class for all living things that will participate in the game.
+    /// All of the races will inherit from it.
+    /// </summary>
+    public abstract class Character : GameObject
     {
-        private string name;
-
-        /// <summary>
-        /// What name will be displayed on screen
-        /// </summary>
-        public string Name
+        protected Character(string name, string description, Location position)
+            : base(name, description, position)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
 
-            set
-            {
-            }
         }
 
-        /// <summary>
-        /// Represents the power of the character in battle
-        /// </summary>
-        public int Strength
+        public abstract bool IsAlive
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        /// <summary>
-        /// The location of the character on the battlefield
-        /// </summary>
-        public Location Position
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        /// <summary>
-        /// The Unicode symbol used to draw the character on the console
-        /// </summary>
-        protected char Symbol
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            get;
         }
     }
 }

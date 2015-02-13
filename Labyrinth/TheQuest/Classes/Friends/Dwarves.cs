@@ -11,10 +11,5 @@ namespace TheQuest
         {
             throw new System.NotImplementedException();
         }
-
-        public Dwarves()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -7,6 +7,11 @@ namespace TheQuest
 {
     public class Bears
     {
+        public Bears()
+        {
+
+        }
+
         public int Count
         {
             get

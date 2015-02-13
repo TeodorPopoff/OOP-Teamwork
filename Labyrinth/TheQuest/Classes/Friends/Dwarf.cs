@@ -1,22 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TheQuest
 {
-    public class Dwarf : Character, IFriend, IRunable
+    public class Dwarf : Character, IFriend, IMove
     {
-        public DwarfNames Name
+        private bool isAlive;
+        private int battleStrength;
+        private char symbol = 'D';
+
+        public Dwarf(string name, string description, Location position)
+            : base(name, description, position)
+        {
+            this.battleStrength = 100;
+        }
+
+        public override bool IsAlive
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.isAlive;
+            }
+        }
+
+        public override char Symbol
+        {
+            get
+            {
+                return this.symbol;
+            }
+        }
+
+        int IFriend.BattleStrength
+        {
+            get
+            {
+                return this.battleStrength;
             }
 
             set
             {
+                this.battleStrength = value;
+                if (this.battleStrength <= 0)
+                {
+                    this.isAlive = false;
+                }
             }
         }
+
     }
 }

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TheQuest
 {
-    public class ThorinTeam : IMovable
+    public class ThorinTeam : IMove
     {
         public ThorinTeam()
         {
@@ -97,6 +94,26 @@ namespace TheQuest
         public void RideAway()
         {
             throw new System.NotImplementedException();
+        }
+
+        void IMove.MoveRight()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMove.MoveLeft()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMove.MoveUp()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMove.MoveDown()
+        {
+            throw new NotImplementedException();
         }
     }
 }

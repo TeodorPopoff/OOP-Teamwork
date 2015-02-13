@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Classes\Friends\Bears.cs" />
     <Compile Include="Classes\Magicians\AngmarKing.cs" />
-    <Compile Include="Classes\Friends\Beorn.cs" />
+    <Compile Include="Classes\Friends\Bear.cs" />
     <Compile Include="Classes\Character.cs" />
     <Compile Include="Classes\Friends\Dwarf.cs" />
     <Compile Include="Classes\Friends\Dwarves.cs" />
@@ -59,10 +59,10 @@
     <Compile Include="Classes\Items\Food.cs" />
     <Compile Include="Classes\Friends\Hobbit.cs" />
     <Compile Include="Classes\Enemies\Goblins.cs" />
+    <Compile Include="Classes\GameObject.cs" />
     <Compile Include="Interfaces\IFly.cs" />
-    <Compile Include="Interfaces\IFlyable.cs" />
     <Compile Include="Interfaces\IFood.cs" />
-    <Compile Include="Interfaces\IInvisible.cs" />
+    <Compile Include="Interfaces\ISpy.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IFriend.cs" />
     <Compile Include="Interfaces\IMagician.cs" />
@@ -74,11 +74,12 @@
     <Compile Include="Classes\Magicians\Saruman.cs" />
     <Compile Include="Classes\Magicians\Sauron.cs" />
     <Compile Include="Classes\Elves\Tauriel.cs" />
-    <Compile Include="Classes\TheQuest.cs" />
-    <Compile Include="Interfaces\IRun.cs" />
-    <Compile Include="Interfaces\Item.cs" />
-    <Compile Include="Interfaces\IWatter.cs" />
+    <Compile Include="Engine\TheQuest.cs" />
+    <Compile Include="Interfaces\IMove.cs" />
+    <Compile Include="Classes\Item.cs" />
+    <Compile Include="Interfaces\IRide.cs" />
     <Compile Include="Interfaces\IWeapon.cs" />
+    <Compile Include="Engine\KeyListener.cs" />
     <Compile Include="Structures\Location.cs" />
     <Compile Include="Classes\Magicians\Magicians.cs" />
     <Compile Include="Classes\Enemies\Orks.cs" />

@@ -1,12 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace TheQuest
 {
     public class Legolas : Elve, IFriend
     {
+        public Legolas(string name, string description, Location position)
+            : base(name, description, position)
+        {
+            
+        }
 
+        public override bool IsAlive
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public override char Symbol
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        int IFriend.BattleStrength
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

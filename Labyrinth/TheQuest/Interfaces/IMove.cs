@@ -5,12 +5,8 @@ using System.Text;
 
 namespace TheQuest
 {
-    public interface IMovable
+    public interface IMove
     {
-        /// <summary>
-        /// How many steps the character can move
-        /// </summary>
-        int Range { get; set; }
 
         /// <summary>
         /// Moves the character right

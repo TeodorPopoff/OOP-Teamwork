@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TheQuest
 {
-    public abstract class Item
+    public class KeyListener
     {
     }
 }

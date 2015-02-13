@@ -1,39 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
+    /// <summary>
+    /// Structure that will hold the location of each GameObject on the battlefield
+    /// </summary>
     public struct Location
     {
+        private int x;
+        private int y;
+
+        public Location(int x,  int y)
+            : this()
+        {
+            this.X = x;
+            this.Y = y;
+        }
         /// <summary>
-        /// The X coordinate on the Battlefield
+        /// The X coordinate on the Battlefield (rows)
         /// </summary>
         public int X
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.x;
             }
 
             set
             {
+                this.x = value;
             }
         }
 
         /// <summary>
-        /// The Y coordinate on the Battlefield
+        /// The Y coordinate on the Battlefield (columns)
         /// </summary>
         public int Y
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.y;
             }
 
             set
             {
+                this.y = value;
             }
         }
     }
