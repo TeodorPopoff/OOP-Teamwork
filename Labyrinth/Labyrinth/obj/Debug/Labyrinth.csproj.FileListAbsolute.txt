@@ -14,3 +14,5 @@ C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth
 \\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyrinth.exe
 \\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyrinth.pdb
 \\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyrinth.csprojResolveAssemblyReference.cache
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\Labyrinth\bin\Debug\Labyrinth.pdb

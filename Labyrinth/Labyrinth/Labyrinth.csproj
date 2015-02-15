@@ -57,9 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="ConsoleThings\ConsoleRenderer.cs" />
+    <Compile Include="ConsoleThings\ConsoleSettings.cs" />
+    <Compile Include="Engines\BattleEngine.cs" />
+    <Compile Include="Engines\BattleHandler.cs" />
+    <Compile Include="Engines\CollisionDispatcher.cs" />
+    <Compile Include="Engines\MainEngine.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Enumerations\Direction.cs" />
+    <Compile Include="Interfaces\IAttack.cs" />
+    <Compile Include="Interfaces\ICollidable.cs" />
     <Compile Include="Interfaces\Imovable.cs" />
+    <Compile Include="Objects\AttackableCreature.cs" />
+    <Compile Include="Objects\Creature.cs" />
+    <Compile Include="Objects\Enemies\WildBoar.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Interfaces\IRenderable.cs" />
     <Compile Include="Interfaces\IRenderer.cs" />
@@ -68,11 +79,19 @@
     <Compile Include="MainProgram.cs" />
     <Compile Include="MatrixCoords.cs" />
     <Compile Include="Objects\Hero.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Labyrinth.exe.config" />
+    <None Include="bin\Debug\Labyrinth.vshost.exe.config" />
+    <None Include="bin\Debug\Labyrinth.vshost.exe.manifest" />
     <None Include="Game Description\Labirinth Idea.md" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Labyrinth.csprojResolveAssemblyReference.cache" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -85,6 +104,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Labyrinth.exe" />
+    <Content Include="bin\Debug\Labyrinth.pdb" />
+    <Content Include="bin\Debug\Labyrinth.vshost.exe" />
+    <Content Include="obj\Debug\Labyrinth.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Labyrinth.exe" />
+    <Content Include="obj\Debug\Labyrinth.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

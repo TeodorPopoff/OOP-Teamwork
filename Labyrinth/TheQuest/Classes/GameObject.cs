@@ -7,6 +7,7 @@ namespace TheQuest
     /// and will be located on the battlefield
     /// </summary>
     public abstract class GameObject : IMove
+        //Remove IMove from here and put it into Character
     {
         private const int battlefieldSize = 100;
         private string name;

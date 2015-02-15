@@ -40,7 +40,7 @@
                     this.renderer.EnqueueForRendering(obj);
                 }
 
-                this.allObjects.RemoveAll(x => x.isAlive == false);
+                this.allObjects.RemoveAll(x => x.IsAlive == false);
             }
         }
     }
