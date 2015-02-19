@@ -1,55 +1,43 @@
-﻿using System;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
     public class Elrond : Elve, IMagician
     {
+        private bool _isAlive = true;
+        private char _symbol = 'E';
+        private int _presence;
+        private int _spellPower;
+
         public Elrond(string name, string description, Location position)
             : base(name, description, position)
         {
-            
+            _presence = 20;
+            _spellPower = 200;
         }
 
         public override bool IsAlive
         {
             get
             {
-                throw new NotImplementedException();
+                return this._isAlive;
             }
         }
 
         public override char Symbol
         {
-            get
+            get 
             {
-                throw new NotImplementedException();
+                return this._symbol;
             }
         }
 
-        int IMagician.Presence
+        public int SpellPower
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return this._spellPower; }
         }
 
-        int IMagician.SpellPower
+        public int Presence
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return _presence; }
         }
     }
 }

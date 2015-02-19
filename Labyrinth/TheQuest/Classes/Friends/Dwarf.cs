@@ -2,23 +2,23 @@
 
 namespace TheQuest
 {
-    public class Dwarf : Character, IFriend, IMove
+    public class Dwarf : Character, IFriend
     {
-        private bool isAlive;
-        private int battleStrength;
-        private char symbol = 'D';
+        private bool _isAlive = true;
+        private int _battleStrength;
+        private char _symbol = 'D';
 
         public Dwarf(string name, string description, Location position)
             : base(name, description, position)
         {
-            this.battleStrength = 100;
+            this._battleStrength = 100;
         }
 
         public override bool IsAlive
         {
             get
             {
-                return this.isAlive;
+                return this._isAlive;
             }
         }
 
@@ -26,26 +26,25 @@ namespace TheQuest
         {
             get
             {
-                return this.symbol;
+                return this._symbol;
             }
         }
 
-        int IFriend.BattleStrength
+        public int BattleStrength
         {
             get
             {
-                return this.battleStrength;
+                return this._battleStrength;
             }
 
             set
             {
-                this.battleStrength = value;
-                if (this.battleStrength <= 0)
+                this._battleStrength = value;
+                if (this._battleStrength <= 0)
                 {
-                    this.isAlive = false;
+                    this._isAlive = false;
                 }
             }
         }
-
     }
 }

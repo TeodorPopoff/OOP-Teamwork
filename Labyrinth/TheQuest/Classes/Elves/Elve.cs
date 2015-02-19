@@ -1,25 +1,24 @@
-﻿using System;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
-    public abstract class Elve : Character, IFriend, IMove
+    public abstract class Elve : Character, IFriend
     {
+        private int _battleStrength;
+
         public Elve(string name, string description, Location position)
             : base(name, description, position)
         {
-            
         }
 
-        int IFriend.BattleStrength
+        public int BattleStrength
         {
             get
             {
-                throw new NotImplementedException();
+                return this._battleStrength;
             }
 
             set
             {
-                throw new NotImplementedException();
+                this._battleStrength = 90;
             }
         }
     }

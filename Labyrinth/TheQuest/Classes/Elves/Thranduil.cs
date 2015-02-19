@@ -1,9 +1,10 @@
-﻿using System;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
-    public class Thranduil : Elve, IFriend
+    public class Thranduil : Elve
     {
+        private bool _isAlive = true;
+        private char _symbol = 'L';
+
         public Thranduil(string name, string description, Location position)
             : base(name, description, position)
         {
@@ -14,7 +15,7 @@ namespace TheQuest
         {
             get
             {
-                throw new NotImplementedException();
+                return this._isAlive;
             }
         }
 
@@ -22,7 +23,7 @@ namespace TheQuest
         {
             get
             {
-                throw new NotImplementedException();
+                return this._symbol;
             }
         }
     }

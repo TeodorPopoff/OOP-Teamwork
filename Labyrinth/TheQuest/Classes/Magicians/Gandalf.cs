@@ -2,7 +2,7 @@
 
 namespace TheQuest
 {
-    public class Gandalf : Magician, IMagician, IFriend
+    public class Gandalf : Magician, IFriend
     {
         public Gandalf(string name, string description, Location position)
             : base(name, description, position)

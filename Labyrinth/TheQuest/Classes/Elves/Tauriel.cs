@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
-    public class Tauriel : Elve, IFriend
+    public class Tauriel : Elve
     {
+        private bool _isAlive = true;
+        private char _symbol = 'T';
+
         public Tauriel(string name, string description, Location position)
             : base(name, description, position)
         {
             
         }
+
         public override bool IsAlive
         {
             get
             {
-                throw new NotImplementedException();
+                return this._isAlive;
             }
         }
 
@@ -24,7 +23,7 @@ namespace TheQuest
         {
             get
             {
-                throw new NotImplementedException();
+                return this._symbol;
             }
         }
     }

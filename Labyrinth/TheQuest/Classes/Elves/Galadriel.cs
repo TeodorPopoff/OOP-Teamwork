@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
-    public class Galadriel : Elve, IMagician, IFriend
+    public class Galadriel : Elve, IMagician
     {
+        private bool _isAlive = true;
+        private char _symbol = 'G';
+        private int _presence;
+        private int _spellPower;
+
         public Galadriel(string name, string description, Location position)
             : base(name, description, position)
         {
             
         }
+
         public override bool IsAlive
         {
             get
             {
-                throw new NotImplementedException();
+                return this._isAlive;
             }
         }
 
@@ -24,46 +25,18 @@ namespace TheQuest
         {
             get
             {
-                throw new NotImplementedException();
+                return this._symbol;
             }
         }
 
-        int IMagician.Presence
+        public int SpellPower
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return this._spellPower; }
         }
 
-        int IMagician.SpellPower
+        public int Presence
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        int IFriend.BattleStrength
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get { return _presence; }
         }
     }
 }

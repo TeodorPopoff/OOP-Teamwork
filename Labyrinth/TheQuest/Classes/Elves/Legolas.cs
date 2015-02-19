@@ -1,9 +1,10 @@
-﻿using System;
-
-namespace TheQuest
+﻿namespace TheQuest
 {
-    public class Legolas : Elve, IFriend
+    public class Legolas : Elve
     {
+        private bool _isAlive = true;
+        private char _symbol = 'L';
+
         public Legolas(string name, string description, Location position)
             : base(name, description, position)
         {
@@ -14,7 +15,7 @@ namespace TheQuest
         {
             get
             {
-                throw new NotImplementedException();
+                return this._isAlive;
             }
         }
 
@@ -22,19 +23,7 @@ namespace TheQuest
         {
             get
             {
-                throw new NotImplementedException();
-            }
-        }
-
-        int IFriend.BattleStrength
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
+                return this._symbol;
             }
         }
     }
