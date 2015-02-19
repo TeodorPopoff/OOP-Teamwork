@@ -96,22 +96,7 @@ namespace TheQuest
             throw new System.NotImplementedException();
         }
 
-        void IMove.MoveRight()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMove.MoveLeft()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMove.MoveUp()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMove.MoveDown()
+        public void Move(Direction direction, int step)
         {
             throw new NotImplementedException();
         }

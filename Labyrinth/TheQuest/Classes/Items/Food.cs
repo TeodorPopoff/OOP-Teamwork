@@ -4,19 +4,12 @@ namespace TheQuest
 {
     public class Food : Item, IFood
     {
-        public Food(string name, string description, Location position)
-            : base(name, description, position)
+        public Food(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }
 
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         int IFood.StrengthEffect
         {

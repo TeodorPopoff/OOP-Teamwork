@@ -7,19 +7,12 @@ namespace TheQuest
 {
     public class Eagles : Item, IFly
     {
-        public Eagles(string name, string description, Location position)
-            : base(name, description, position)
+        public Eagles(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }
 
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         int IFly.FlyingEffect
         {

@@ -4,8 +4,8 @@ namespace TheQuest
 {
     public class Goblin : Character, IEnemy
     {
-        public Goblin(string name, string description, Location position)
-            : base(name, description, position)
+        public Goblin(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }
@@ -23,20 +23,5 @@ namespace TheQuest
             }
         }
 
-        public override bool IsAlive
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 }

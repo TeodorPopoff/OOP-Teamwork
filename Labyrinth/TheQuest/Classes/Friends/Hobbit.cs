@@ -4,8 +4,8 @@ namespace TheQuest
 {
     public abstract class Hobbit : Character, IFriend
     {
-        public Hobbit(string name, string description, Location position)
-            : base(name, description, position)
+        public Hobbit(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }

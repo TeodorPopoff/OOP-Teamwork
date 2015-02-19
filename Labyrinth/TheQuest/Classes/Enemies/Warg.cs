@@ -5,41 +5,12 @@ using System.Text;
 
 namespace TheQuest
 {
-    public class Warg : Character, IEnemy
+    public class Warg : Character
     {
-        public Warg(string name, string description, Location position)
-            : base(name, description, position)
+        public Warg(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
-        }
-
-        public override bool IsAlive
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        int IEnemy.BattleStrength
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
         }
     }
 }

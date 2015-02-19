@@ -7,27 +7,15 @@ namespace TheQuest
         private bool _isAlive = true;
         private int _battleStrength;
         private char _symbol = 'D';
+        private char p1;
+        private string p2;
+        private string p3;
+        private Location location;
 
-        public Dwarf(string name, string description, Location position)
-            : base(name, description, position)
+        public Dwarf(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             this._battleStrength = 100;
-        }
-
-        public override bool IsAlive
-        {
-            get
-            {
-                return this._isAlive;
-            }
-        }
-
-        public override char Symbol
-        {
-            get
-            {
-                return this._symbol;
-            }
         }
 
         public int BattleStrength

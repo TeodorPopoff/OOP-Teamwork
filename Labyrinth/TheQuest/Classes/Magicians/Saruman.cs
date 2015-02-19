@@ -4,27 +4,12 @@ namespace TheQuest
 {
     public class Saruman : Magician, IFriend
     {
-        public Saruman(string name, string description, Location position)
-            : base(name, description, position)
+        public Saruman(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }
 
-        public override bool IsAlive
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         int IFriend.BattleStrength
         {

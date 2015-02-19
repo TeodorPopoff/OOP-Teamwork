@@ -6,19 +6,28 @@ namespace TheQuest
     /// This is base class for all beings and things that will participate in the game
     /// and will be located on the battlefield
     /// </summary>
-    public abstract class GameObject : IMove
+    public abstract class GameObject 
         //Remove IMove from here and put it into Character
     {
         private const int battlefieldSize = 100;
         private string name;
         private string description;
         private Location position;
+        private char symbol;
 
-        protected GameObject(string name, string description, Location position)
+        public char Symbol
+        {
+            get { return symbol; }
+            set { symbol = value; }
+        }
+
+
+        protected GameObject(char symbol, string name, string description, Location position)
         {
             this.Name = name;
             this.Description = description;
             this.Position = position;
+            this.Symbol = symbol;
         }
 
         /// <summary>
@@ -64,10 +73,6 @@ namespace TheQuest
         /// <summary>
         /// The Unicode symbol used to draw the character on the console
         /// </summary>
-        public abstract char Symbol
-        {
-            get;
-        }
 
         /// <summary>
         /// The location of the character on the battlefield
@@ -89,26 +94,6 @@ namespace TheQuest
                 this.position.X = value.X;
                 this.position.Y = value.Y;
             }
-        }
-
-        void IMove.MoveRight()
-        {
-            this.Position = new Location(this.position.X, this.Position.Y + 1);
-        }
-
-        void IMove.MoveLeft()
-        {
-            this.Position = new Location(this.position.X, this.Position.Y - 1);
-        }
-
-        void IMove.MoveUp()
-        {
-            this.Position = new Location(this.position.X - 1, this.Position.Y);
-        }
-
-        void IMove.MoveDown()
-        {
-            this.Position = new Location(this.position.X + 1, this.Position.Y);
         }
     }
 }

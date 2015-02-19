@@ -4,27 +4,12 @@ namespace TheQuest
 {
     public class Gandalf : Magician, IFriend
     {
-        public Gandalf(string name, string description, Location position)
-            : base(name, description, position)
+        public Gandalf(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }
 
-        public override bool IsAlive
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         int IFriend.BattleStrength
         {

@@ -4,8 +4,8 @@
     {
         private int _battleStrength;
 
-        public Elve(string name, string description, Location position)
-            : base(name, description, position)
+        public Elve(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
         }
 

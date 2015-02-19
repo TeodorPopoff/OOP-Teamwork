@@ -7,22 +7,6 @@ namespace TheQuest
 {
     public interface IMove
     {
-
-        /// <summary>
-        /// Moves the character right
-        /// </summary>
-        void MoveRight();
-        /// <summary>
-        /// Moves the character left
-        /// </summary>
-        void MoveLeft();
-        /// <summary>
-        /// Moves the character up
-        /// </summary>
-        void MoveUp();
-        /// <summary>
-        /// Moves the character down
-        /// </summary>
-        void MoveDown();
+        void Move(Direction direction, int step);
     }
 }

@@ -4,18 +4,10 @@ namespace TheQuest
 {
     public class Horses : Item, IRide
     {
-        public Horses(string name, string description, Location position)
-            : base(name, description, position)
+        public Horses(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
-        }
-
-        public override char Symbol
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
         }
 
         int IRide.RidingEffect

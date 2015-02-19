@@ -4,8 +4,8 @@ namespace TheQuest
 {
     public abstract class RingBearer : Hobbit, ISpy
     {
-        public RingBearer(string name, string description, Location position)
-            : base(name, description, position)
+        public RingBearer(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
             
         }

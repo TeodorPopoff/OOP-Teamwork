@@ -41,66 +41,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Friends\Bears.cs" />
-    <Compile Include="Classes\Magicians\AngmarKing.cs" />
-    <Compile Include="Classes\Friends\Bear.cs" />
     <Compile Include="Classes\Character.cs" />
-    <Compile Include="Classes\Friends\Dwarf.cs" />
-    <Compile Include="Classes\Friends\Dwarves.cs" />
-    <Compile Include="Classes\Friends\Elves.cs" />
-    <Compile Include="Enumerations\DwarfNames.cs" />
-    <Compile Include="Classes\Friends\Eagle.cs" />
     <Compile Include="Classes\Elves\Elrond.cs" />
     <Compile Include="Classes\Elves\Elve.cs" />
     <Compile Include="Classes\Elves\Galadriel.cs" />
-    <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Classes\Magicians\Gandalf.cs" />
-    <Compile Include="Classes\Enemies\Goblin.cs" />
-    <Compile Include="Classes\Items\Food.cs" />
-    <Compile Include="Classes\Friends\Hobbit.cs" />
-    <Compile Include="Classes\Enemies\Goblins.cs" />
-    <Compile Include="Classes\GameObject.cs" />
-    <Compile Include="Interfaces\IFly.cs" />
-    <Compile Include="Interfaces\IFood.cs" />
-    <Compile Include="Interfaces\ISpy.cs" />
-    <Compile Include="Interfaces\IEnemy.cs" />
-    <Compile Include="Interfaces\IFriend.cs" />
-    <Compile Include="Interfaces\IMagician.cs" />
     <Compile Include="Classes\Elves\Legolas.cs" />
-    <Compile Include="Classes\Magicians\Magician.cs" />
-    <Compile Include="Classes\Magicians\Necromancer.cs" />
+    <Compile Include="Classes\Elves\Tauriel.cs" />
+    <Compile Include="Classes\Elves\Thranduil.cs" />
+    <Compile Include="Classes\Enemies\Goblin.cs" />
+    <Compile Include="Classes\Enemies\Goblins.cs" />
     <Compile Include="Classes\Enemies\Ork.cs" />
+    <Compile Include="Classes\Enemies\Orks.cs" />
+    <Compile Include="Classes\Enemies\Troll.cs" />
+    <Compile Include="Classes\Enemies\Trolls.cs" />
+    <Compile Include="Classes\Enemies\Warg.cs" />
+    <Compile Include="Classes\Friends\Bear.cs" />
+    <Compile Include="Classes\Friends\Bears.cs" />
+    <Compile Include="Classes\Friends\Dwarf.cs" />
+    <Compile Include="Classes\Friends\Dwarves.cs" />
+    <Compile Include="Classes\Friends\Eagle.cs" />
+    <Compile Include="Classes\Friends\Elves.cs" />
+    <Compile Include="Classes\Friends\Hobbit.cs" />
+    <Compile Include="Classes\Friends\RingBearer.cs" />
+    <Compile Include="Classes\Friends\ThorinTeam.cs" />
+    <Compile Include="Classes\GameObject.cs" />
+    <Compile Include="Classes\Item.cs" />
+    <Compile Include="Classes\Items\Food.cs" />
+    <Compile Include="Classes\Items\Watter.cs" />
+    <Compile Include="Classes\Items\Weapons.cs" />
+    <Compile Include="Classes\Magicians\AngmarKing.cs" />
+    <Compile Include="Classes\Magicians\Gandalf.cs" />
+    <Compile Include="Classes\Magicians\Magician.cs" />
+    <Compile Include="Classes\Magicians\Magicians.cs" />
+    <Compile Include="Classes\Magicians\Necromancer.cs" />
     <Compile Include="Classes\Magicians\Radagast.cs" />
     <Compile Include="Classes\Magicians\Saruman.cs" />
     <Compile Include="Classes\Magicians\Sauron.cs" />
-    <Compile Include="Classes\Elves\Tauriel.cs" />
-    <Compile Include="Engine\TheQuest.cs" />
-    <Compile Include="Interfaces\IMove.cs" />
-    <Compile Include="Classes\Item.cs" />
-    <Compile Include="Interfaces\IRide.cs" />
-    <Compile Include="Interfaces\IWeapon.cs" />
+    <Compile Include="ConsoleThings\ConsoleRenderer.cs" />
+    <Compile Include="ConsoleThings\ConsoleSettings.cs" />
+    <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\KeyListener.cs" />
-    <Compile Include="Structures\Location.cs" />
-    <Compile Include="Classes\Magicians\Magicians.cs" />
-    <Compile Include="Classes\Enemies\Orks.cs" />
+    <Compile Include="Enumerations\Direction.cs" />
+    <Compile Include="Enumerations\DwarfNames.cs" />
+    <Compile Include="Interfaces\IEnemy.cs" />
+    <Compile Include="Interfaces\IFly.cs" />
+    <Compile Include="Interfaces\IFood.cs" />
+    <Compile Include="Interfaces\IFriend.cs" />
+    <Compile Include="Interfaces\IMagician.cs" />
+    <Compile Include="Interfaces\IMove.cs" />
+    <Compile Include="Interfaces\IRide.cs" />
+    <Compile Include="Interfaces\ISpy.cs" />
+    <Compile Include="Interfaces\IWeapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\Elves\Thranduil.cs" />
-    <Compile Include="Classes\Enemies\Troll.cs" />
-    <Compile Include="Classes\Enemies\Warg.cs" />
-    <Compile Include="Classes\Friends\RingBearer.cs" />
-    <Compile Include="Classes\Items\Watter.cs" />
-    <Compile Include="Classes\Items\Weapons.cs" />
-    <Compile Include="Classes\Friends\ThorinTeam.cs" />
-    <Compile Include="Classes\Enemies\Trolls.cs" />
+    <Compile Include="Structures\Location.cs" />
+    <Compile Include="TheQuest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Game Description\The Quest Idea.md" />
     <None Include="TheQuest_Diagram.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

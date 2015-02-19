@@ -1,20 +1,58 @@
-﻿namespace TheQuest
+﻿using System;
+namespace TheQuest
 {
     /// <summary>
     /// A base class for all living things that will participate in the game.
     /// All of the races will inherit from it.
     /// </summary>
-    public abstract class Character : GameObject
+    public abstract class Character : GameObject, IMove
     {
-        protected Character(string name, string description, Location position)
-            : base(name, description, position)
+        protected Character(char symbol, string name, string description, Location position)
+            : base(symbol, name, description, position)
         {
 
         }
 
-        public abstract bool IsAlive
+        public virtual void Move(Direction direction, int step = 1)
         {
-            get;
+            int newRow = this.Position.Y;
+            int newCol = this.Position.X;
+
+
+            switch (direction)
+            {
+                case Direction.Up:
+                    if (newRow - step >= 0)
+                    {
+                        newRow -= step;
+                    }
+                    break;
+
+                case Direction.Right:
+                    if (newCol + step < ConsoleSettings.ConsoleWidth)
+                    {
+                        newCol += step;
+                    }
+                    break;
+
+                case Direction.Down:
+                    if (newRow + step < ConsoleSettings.ConsoleHeight)
+                    {
+                        newRow += step;
+                    }
+                    break;
+
+                case Direction.Left:
+                    if (newCol - step >= 0)
+                    {
+                        newCol -= step;
+                    }
+                    break;
+
+                default:
+                    throw new InvalidOperationException("Invalid direction provided.");
+            }
+            this.Position = new Location(newCol, newRow);
         }
     }
 }

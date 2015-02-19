@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace TheQuest
 {
@@ -10,6 +11,16 @@ namespace TheQuest
         private const int BattlefieldWidth = 1;
         private const int BattlefieldHeight = 1;
         private const int MaxNumberOfCharacters = 1;
+        private ICollection<GameObject> allObjects;
+        private KeyListener userInterface;
+        private ConsoleRenderer batleField;
+
+        public GameEngine(KeyListener userInterface, ConsoleRenderer batleField)
+        {
+            this.userInterface = userInterface;
+            this.batleField = batleField;
+            this.allObjects = new List<GameObject>();
+        }
 
         private bool IsFinished
         {
@@ -23,9 +34,24 @@ namespace TheQuest
             }
         }
 
+        public void AddObject(GameObject obj)
+        {
+            this.allObjects.Add(obj);
+        }
+
         public void Run()
         {
-            throw new System.NotImplementedException();
+            while (true)
+            {
+                this.batleField.EnqueueForRendering(this.allObjects);
+                this.batleField.RenderAll();
+
+                this.userInterface.ProcessInput();
+
+                this.batleField.ClearQueue();
+                
+                Thread.Sleep(150);
+            }
         }
 
         /// <summary>

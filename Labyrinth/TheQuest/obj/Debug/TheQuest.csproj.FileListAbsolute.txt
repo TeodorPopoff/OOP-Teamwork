@@ -4,3 +4,9 @@
 \\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\TheQuest\bin\Debug\TheQuest.pdb
 \\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQuest.exe
 \\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQuest.pdb
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth\TheQuest\bin\Debug\TheQuest.exe.config
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth\TheQuest\obj\Debug\TheQuest.exe
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth\TheQuest\obj\Debug\TheQuest.pdb
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth\TheQuest\bin\Debug\TheQuest.exe
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth\TheQuest\bin\Debug\TheQuest.pdb
+C:\Users\vasko2\Documents\Visual Studio 2013\Projects\TeamDurian\trunk\Labyrinth\TheQuest\obj\Debug\TheQuest.csprojResolveAssemblyReference.cache
