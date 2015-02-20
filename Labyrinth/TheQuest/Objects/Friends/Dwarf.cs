@@ -30,7 +30,7 @@ namespace TheQuest
             }
         }
 
-        public override char Symbol
+        public override string Symbol
         {
             get
             {
@@ -38,7 +38,7 @@ namespace TheQuest
             }
         }
 
-        public int BattleStrength
+        public override int BattleStrength
         {
             get
             {

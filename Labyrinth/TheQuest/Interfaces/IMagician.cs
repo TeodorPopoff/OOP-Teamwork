@@ -1,4 +1,4 @@
-﻿namespace TheQuest
+﻿                namespace TheQuest
 {
     public interface IMagician
     {
@@ -6,6 +6,6 @@
         /// <summary>
         /// For how many moves the magiciam will stay with us
         /// </summary>
-        int Presence { get; }
+        int Presence { get; set; }
     }
 }

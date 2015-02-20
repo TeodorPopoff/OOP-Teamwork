@@ -15,6 +15,8 @@ namespace TheQuest
 
         public abstract bool IsAlive { get; }
 
+        public abstract int BattleStrength { get; set; }
+
         public virtual void Move(Direction direction, int step = 1)
         {
             int newRow = this.Position.Y;

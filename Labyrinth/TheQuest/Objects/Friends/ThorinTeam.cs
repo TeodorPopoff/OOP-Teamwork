@@ -1,12 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TheQuest
 {
     public class ThorinTeam : IMove
     {
+        private List<Character> companions;
+        private Location position;
+        private bool isAlive;
+        private string symbol;
+
+        /// <summary>
+        /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
+        /// and places the team at the starting position.
+        /// </summary>
         public ThorinTeam()
         {
-            throw new System.NotImplementedException();
+            this.position = new Location(0, 0);
+            Dwarf thorin = new Dwarf(
+                "Thorin",
+                new Location(0, 0));
+            this.companions.Add(thorin);
+            this.symbol = thorin.Symbol;
         }
 
         /// <summary>
@@ -16,89 +31,107 @@ namespace TheQuest
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
+                int strength = 0;
+                foreach (Character companion in this.companions)
+                {
+                    strength += companion.BattleStrength;
+                }
+                return strength;
             }
         }
 
+        /// <summary>
+        /// Gives the number of companions that are currently inside the team.
+        /// </summary>
         public int Count
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
+                return this.companions.Count;
             }
         }
 
         /// <summary>
-        /// Prints the names of dwarves that are in the team
+        /// Adds a new member to the team.
         /// </summary>
-        public string PrintNames
+        /// <param name="companion">The Character object to add.</param>
+        /// <returns>A message with info who was added and how was the team strength affected.</returns>
+        public string AddCompanion(Character companion)
         {
-            get
+            if (!(companion is IFriend))
             {
-                throw new System.NotImplementedException();
+                throw new InvalidOperationException("You can only add characters that implement IFriend to Thorin's team.");
             }
 
-            set
+            if (companion is IMagician)
             {
+                foreach (Character member in this.companions)
+                {
+                    member.BattleStrength *= (companion as IMagician).SpellPower;
+                }
             }
+
+            this.companions.Add(companion);
+
+            return string.Format("{0} just joined the team. Your strength has now increased to {1}.",
+                companion.Name, this.Strength);
         }
 
         /// <summary>
-        /// The distance it can fly
+        /// Removes a member from the team.
+        /// If the member is a Magigician, also removes the Spell effect on the team's strength.
         /// </summary>
-        public int FlyingRange
+        /// <param name="companion">The Character to remove.</param>
+        /// <returns>A string message with info on who has left the company / died in battle.</returns>
+        public string RemoveCompanion(Character companion)
         {
-            get
+            if (!this.companions.Contains(companion))
             {
-                throw new System.NotImplementedException();
+                throw new ArgumentException("This companion does not exist in the team.");
             }
 
-            set
+            this.companions.Remove(companion);
+
+            if (companion is IMagician)
             {
+                foreach (Character member in this.companions)
+                {
+                    member.BattleStrength /= (companion as IMagician).SpellPower;
+                }
+                return string.Format("{0} has just left the team on some other Magicians' business. Your strength is now {1}",
+                    companion.Name, this.Strength);
             }
+            else
+            {
+                return string.Format("{0} was lost in battle... Eternal glory on his name forevermore!",
+                    companion.Name);
+            }
+
         }
 
         /// <summary>
-        /// The distance it can ride
+        /// Moves the whole team to a new position on the battlefield.
         /// </summary>
-        public int RidingRange
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public void AddMember()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void FlyAway()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RideAway()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        /// <param name="direction">In what direction to move.</param>
+        /// <param name="step">What distance to move.</param>
         public void Move(Direction direction, int step)
         {
-            throw new NotImplementedException();
+            foreach (Character companion in this.companions)
+            {
+                companion.Move(direction, step);
+            }
+
+            foreach (Character  member in this.companions)
+            {
+                if (member is IMagician)
+                {
+                    (member as IMagician).Presence--;
+                    if ((member as IMagician).Presence == 0)
+                    {
+                        RemoveCompanion(member);
+                    }
+                }
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TheQuest
     {
         private string name;
         private Location position;
-        protected char symbol;
+        protected string symbol;
         protected string description;
 
         protected GameObject(string name, Location position)
@@ -47,7 +47,7 @@ namespace TheQuest
             get;
         }
 
-        public abstract char Symbol
+        public abstract string Symbol
         {
             get;
         }
