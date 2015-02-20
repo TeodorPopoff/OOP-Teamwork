@@ -13,6 +13,7 @@ namespace TheQuest
         private int ridingDistance = 0;
         private int flyingDistance = 0;
 
+
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
         /// and places the team at the starting position.

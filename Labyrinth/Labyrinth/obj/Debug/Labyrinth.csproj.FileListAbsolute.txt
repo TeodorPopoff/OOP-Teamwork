@@ -22,3 +22,6 @@ C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyri
 C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe
 C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\bin\Debug\Labyrinth.pdb
 C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyrinth.csprojResolveAssemblyReference.cache
+C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\bin\Debug\Labyrinth.exe.config
+C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyrinth.exe
+C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\Labyrinth\obj\Debug\Labyrinth.pdb

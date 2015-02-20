@@ -51,7 +51,6 @@
     <Compile Include="Objects\Elves\Thranduil.cs" />
     <Compile Include="Objects\Enemies\Goblin.cs" />
     <Compile Include="Objects\Enemies\Ork.cs" />
-    <Compile Include="Objects\Enemies\Orks.cs" />
     <Compile Include="Objects\Enemies\Troll.cs" />
     <Compile Include="Objects\Enemies\Warg.cs" />
     <Compile Include="Objects\Friends\Bear.cs" />
