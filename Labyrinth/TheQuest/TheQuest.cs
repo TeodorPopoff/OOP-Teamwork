@@ -11,6 +11,11 @@ namespace TheQuest
             GameEngine engine = new GameEngine(keyboard, renderer);
             Dwarf mainChar = new Dwarf("asd", new Location(1, 1));
 
+            keyboard.OnDownPressed += (sender, eventInfo) => { mainChar.Move(Direction.Down); };
+            keyboard.OnUpPressed += (sender, eventInfo) => { mainChar.Move(Direction.Up); };
+            keyboard.OnLeftPressed += (sender, eventInfo) => { mainChar.Move(Direction.Left); };
+            keyboard.OnRightPressed += (sender, eventInfo) => { mainChar.Move(Direction.Right); };
+
             engine.AddObject(mainChar);
             engine.Run();
         }
