@@ -2,16 +2,58 @@
 
 namespace TheQuest
 {
-    public class Dwarf : Character
+    public class Dwarf : Character, IFriend
     {
-        private const char DefaultSymbol = 'D';
-        private const int DefaultHealthPoints = 100;
+        private int battleStrength = 100;
+        private bool isAlive = true;
 
-        public Dwarf(string name, Location position, int healthPoints = Dwarf.DefaultHealthPoints)
-            : base(DefaultSymbol, name, position, healthPoints)
+
+        public Dwarf(string name, Location position)
+            : base(name, position)
         {
+            base.symbol = 'D';
+            base.description = "A strong warrior, fearsome in battle. Skilled with an axe and shield.";
         }
 
-        
+        public override bool IsAlive
+        {
+            get
+            {
+                return this.IsAlive;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                return base.description;
+            }
+        }
+
+        public override char Symbol
+        {
+            get
+            {
+                return base.symbol;
+            }
+        }
+
+        public int BattleStrength
+        {
+            get
+            {
+                return this.battleStrength;
+            }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    this.isAlive = false;
+                }
+                this.battleStrength = value;
+            }
+        }
     }
 }

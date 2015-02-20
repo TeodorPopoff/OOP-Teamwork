@@ -9,18 +9,14 @@ namespace TheQuest
     public abstract class GameObject
     {
         private string name;
-        private string description;
-        private char symbol;
-        private bool isAlive;
-
         private Location position;
+        protected char symbol;
+        protected string description;
 
-        protected GameObject(char symbol, string name, Location position)
+        protected GameObject(string name, Location position)
         {
             this.Name = name;
             this.Position = position;
-            this.Symbol = symbol;
-            this.IsAlive = true;
         }
 
         /// <summary>
@@ -46,23 +42,15 @@ namespace TheQuest
         /// <summary>
         /// A short message we can write on the console, e.g. "A powerful and evil magician"
         /// </summary>
-        public string Description
+        public abstract string Description
         {
-            get
-            {
-                return this.description;
-            }
-
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Description cannot be null or empty.");
-                }
-                this.description = value;
-            }
+            get;
         }
 
+        public abstract char Symbol
+        {
+            get;
+        }
         /// <summary>
         /// The location of the character on the battlefield
         /// </summary>
@@ -84,18 +72,4 @@ namespace TheQuest
                 this.position.Y = value.Y;
             }
         }
-
-        public char Symbol
-        {
-            get { return symbol; }
-            set { symbol = value; }
-        }
-
-        public bool IsAlive
-        {
-            get { return isAlive; }
-            set { isAlive = value; }
-        }
-
-    }
 }

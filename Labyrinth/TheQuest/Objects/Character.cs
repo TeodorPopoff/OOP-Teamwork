@@ -7,30 +7,13 @@ namespace TheQuest
     /// </summary>
     public abstract class Character : GameObject, IMove
     {
-        private int healthPoints;
-
-        protected Character(char symbol, string name, Location position, int healthPoints)
-            : base(symbol, name, position)
+        protected Character(string name, Location position)
+            : base(name, position)
         {
-            this.HealthPoints = healthPoints;
+            
         }
 
-        public int HealthPoints
-        {
-            get
-            {
-                return this.healthPoints;
-            }
-
-            set
-            {
-                this.healthPoints = value;
-                if (this.healthPoints <= 0)
-                {
-                    this.IsAlive = false;
-                }
-            }
-        }
+        public abstract bool IsAlive { get; }
 
         public virtual void Move(Direction direction, int step = 1)
         {
