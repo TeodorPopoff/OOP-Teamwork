@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace TheQuest
 {
-    public class ThorinTeam : IMove
+    public class ThorinTeam : GameObject, IMove
     {
         private List<Character> companions;
-        private Location position;
         private bool isAlive;
         private string symbol;
 
@@ -15,13 +14,14 @@ namespace TheQuest
         /// and places the team at the starting position.
         /// </summary>
         public ThorinTeam()
+            :base("Thorin's Team", new Location(0, 0))
         {
-            this.position = new Location(0, 0);
             Dwarf thorin = new Dwarf(
                 "Thorin",
                 new Location(0, 0));
             this.companions.Add(thorin);
-            this.symbol = thorin.Symbol;
+            base.symbol = thorin.Symbol;
+            base.description = "Our group of brave and loyal friends.";
         }
 
         /// <summary>
@@ -50,6 +50,23 @@ namespace TheQuest
                 return this.companions.Count;
             }
         }
+
+        public override string Description
+        {
+            get
+            {
+                return base.description;
+            }
+        }
+
+        public override string Symbol
+        {
+            get
+            {
+                return base.symbol;
+            }
+        }
+
 
         /// <summary>
         /// Adds a new member to the team.
