@@ -7,11 +7,10 @@ namespace TheQuest
         private int battleStrength = 100;
         private bool isAlive = true;
 
-
         public Dwarf(string name, Location position)
             : base(name, position)
         {
-            base.symbol = 'D';
+            base.symbol = "u+26E8";
             base.description = "A strong warrior, fearsome in battle. Skilled with an axe and shield.";
         }
 
