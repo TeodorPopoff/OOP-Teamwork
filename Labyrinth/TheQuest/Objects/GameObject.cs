@@ -72,4 +72,5 @@ namespace TheQuest
                 this.position.Y = value.Y;
             }
         }
+    }
 }

@@ -60,9 +60,8 @@
     <Compile Include="Objects\Enemies\Troll.cs" />
     <Compile Include="Objects\Enemies\Warg.cs" />
     <Compile Include="Objects\Friends\Bear.cs" />
-    <Compile Include="Objects\Friends\Bears.cs" />
     <Compile Include="Objects\Friends\Dwarf.cs" />
-    <Compile Include="Objects\Friends\Eagle.cs" />
+    <Compile Include="Objects\Items\Eagle.cs" />
     <Compile Include="Objects\Friends\Hobbit.cs" />
     <Compile Include="Objects\Friends\RingBearer.cs" />
     <Compile Include="Objects\Friends\ThorinTeam.cs" />
