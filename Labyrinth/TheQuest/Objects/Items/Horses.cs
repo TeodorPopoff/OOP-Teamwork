@@ -2,18 +2,38 @@
 
 namespace TheQuest
 {
-    public class Horses : IRide
+    public class Horses : Item, IRide
     {
-        int IRide.RidingEffect
+        private int ridingEffect = 3;
+
+        public Horses(Location position)
+            : base("Horses", position)
+        {
+            base.symbol = "U+1F40E";
+            base.description = "This item gives the team a prescious ability - to ride away from its enemies.";
+        }
+
+        public override string Description
         {
             get
             {
-                throw new NotImplementedException();
+                return base.description;
             }
+        }
 
-            set
+        public override string Symbol
+        {
+            get
             {
-                throw new NotImplementedException();
+                return base.symbol;
+            }
+        }
+
+        public int RidingEffect
+        {
+            get
+            {
+                return this.ridingEffect;
             }
         }
     }

@@ -2,6 +2,6 @@
 {
     public interface IRide
     {
-        int RidingEffect { get; set; }
+        int RidingEffect { get; }
     }
 }

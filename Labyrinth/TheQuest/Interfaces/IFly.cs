@@ -7,6 +7,6 @@ namespace TheQuest
 {
     public interface IFly
     {
-        int FlyingEffect { get; set; }
+        int FlyingEffect { get; }
     }
 }

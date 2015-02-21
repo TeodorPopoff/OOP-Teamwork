@@ -2,6 +2,6 @@
 {
     public interface IWeapon
     {
-        int StrengthEffect { get; set; }
+        int StrengthEffect { get; }
     }
 }

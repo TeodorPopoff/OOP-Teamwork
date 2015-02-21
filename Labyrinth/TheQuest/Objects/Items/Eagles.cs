@@ -2,15 +2,15 @@
 
 namespace TheQuest
 {
-    public class Food : Item, IFood
+    public class Eagles : Item, IFly
     {
-        private int strengthEffect = 300;
+        private int flyingEffect = 5;
 
-        public Food(Location position)
-            : base("Food", position)
+        public Eagles(Location position)
+            : base("Eagles", position)
         {
-            base.symbol = "U+1F354";
-            base.description = "This item increases the strength of our team.";
+            base.symbol = "U+101EE";
+            base.description = "This item gives the team a prescious ability - to fly away from its enemies.";
         }
 
         public override string Description
@@ -29,11 +29,11 @@ namespace TheQuest
             }
         }
 
-        public int StrengthEffect
+        public int FlyingEffect
         {
             get
             {
-                return this.strengthEffect;
+                return this.flyingEffect;
             }
         }
     }
