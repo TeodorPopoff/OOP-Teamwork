@@ -109,3 +109,68 @@ Moves:
 - - when we select the command Ride Away:
 	- depending on the available riding range, the whole team is moved to another random and free location - but not closer to the destination
 
+
+Events in Thorin's Team class:
+
+- When we join a Character to the team the class fires the CharacterJoinedTheTeam(Character character, string message)
+	- the event is fired from the AddMember () method
+- When a Magician leaves the team because its presence has finished the class fires: CharacterLeftTheTeam(Character character, string message)
+	- the event is fired from the Move() method
+	- the event is fired after we call the method RemoveMember(Character member)
+- During a battle the class fires the event CharacterDiedInBattle(Character character, string message)
+	- we start the battle first by initializing a variable with the starting strength of the team
+		- we use this variable to decrement it during the course of the battle
+	- we check if our strength is less than that of the enemy
+		- if yes, we loose the battle and the game is over: we set this.IsAlive = false
+	- we create a loop:
+		while (enemy strength > 0) {
+			currentFighter = companions[last companion]
+			begining battle strength = currentFighter.BattleStrength
+			currentFighter.BattleStrength -= enemy.BattleStrength;
+			if(currentFighter is dead) {
+				enemy.BattleStrength -= beginning battle strength
+				this.Remove(currentFighter)
+				fire event CharacterDiedInBattle(Character currentFighter, "e.g. Bombur died cheroicaly in battle...")
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

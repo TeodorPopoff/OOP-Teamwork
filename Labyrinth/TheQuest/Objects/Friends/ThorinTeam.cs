@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TheQuest.Events;
 
 namespace TheQuest
 {
@@ -12,6 +13,10 @@ namespace TheQuest
         private bool canFly = false;
         private int ridingDistance = 0;
         private int flyingDistance = 0;
+
+        public event CharacterJoinedTheTeamEventHandler CharacterJoinedTheTeam;
+        public event CharacterLeftTheTeamEventHandler CharacterLeftTheTeam;
+        public event CharacterDiedInBattleEventHandler CharacterDiedInBattle;
 
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
@@ -104,8 +109,8 @@ namespace TheQuest
         /// Adds a new member to the team.
         /// </summary>
         /// <param name="companion">The Character object to add.</param>
-        /// <returns>A message with info who was added and how was the team strength affected.</returns>
-        public string AddCompanion(Character companion)
+        /// <returns>Fires event each time a companion is added.</returns>
+        public void AddCompanion(Character companion)
         {
             if (!(companion is IFriend))
             {
@@ -121,9 +126,10 @@ namespace TheQuest
             }
 
             this.companions.Add(companion);
-
-            return string.Format("{0} just joined the team. Your strength has now increased to {1}.",
+            string message = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
                 companion.Name, this.Strength);
+            CharacterJoinedTheTeamEventArgs joinedEventArgs = new CharacterJoinedTheTeamEventArgs(companion, message);
+            CharacterJoinedTheTeam(companion, joinedEventArgs);
         }
 
         /// <summary>
@@ -131,8 +137,8 @@ namespace TheQuest
         /// If the member is a Magigician, also removes the Spell effect on the team's strength.
         /// </summary>
         /// <param name="companion">The Character to remove.</param>
-        /// <returns>A string message with info on who has left the company / died in battle.</returns>
-        public string RemoveCompanion(Character companion)
+        /// <returns>Void</returns>
+        public void RemoveCompanion(Character companion)
         {
             if (!this.companions.Contains(companion))
             {
@@ -147,14 +153,19 @@ namespace TheQuest
                 {
                     member.BattleStrength /= (companion as IMagician).SpellPower;
                 }
-                return string.Format("{0} has just left the team on some other Magicians' business. Your strength is now {1}",
-                    companion.Name, this.Strength);
+                //return string.Format("{0} has just left the team on some other Magicians' business. Your strength is now {1}",
+                //    companion.Name, this.Strength);
             }
-            else
+
+            if (this.companions.Count == 0)
             {
-                return string.Format("{0} was lost in battle... Eternal glory on his name forevermore!",
-                    companion.Name);
+                this.isAlive = false;
             }
+            //else
+            //{
+            //    return string.Format("{0} was lost in battle... Eternal glory on his name forevermore!",
+            //        companion.Name);
+            //}
 
         }
 
@@ -232,7 +243,48 @@ namespace TheQuest
                     if ((member as IMagician).Presence == 0)
                     {
                         RemoveCompanion(member);
+                        string message = string.Format("{0} has juft left the team on some magician's business. Your strength has now decreased to {1}.",
+                            member.Name, this.Strength);
+                        CharacterLeftTheTeamEventArgs leftArgs = new CharacterLeftTheTeamEventArgs(member, message);
+                        this.CharacterLeftTheTeam(member, leftArgs);
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Implements battle with an enemy.
+        /// Changes IsAlive to false if the battle is lost.
+        /// Fires event every time when a member of the team dies in the battle.
+        /// </summary>
+        /// <param name="enemy">The enemy to fight with.</param>
+        public void Fight(Character enemy)
+        {
+            if (!(enemy is IEnemy))
+            {
+                throw new ArgumentException("Parameter enemy must implement interface IEnemy.");
+            }
+            int teamStrengthAtBattleStart = this.Strength;
+            if (teamStrengthAtBattleStart <= enemy.BattleStrength)
+            {
+                this.isAlive = false;
+                return;
+            }
+
+            while (enemy.BattleStrength > 0)
+            {
+                Character currentFighter = this.companions[this.companions.Count - 1];
+                int fighterStrength = currentFighter.BattleStrength;
+                currentFighter.BattleStrength -= enemy.BattleStrength;
+
+                if (!currentFighter.IsAlive)
+                {
+                    enemy.BattleStrength -= fighterStrength;
+                    this.RemoveCompanion(currentFighter);
+                    string message = string.Format("{0} perished in battle with evil {1}s. Eternal glory upon his name!",
+                        currentFighter.Name, enemy.GetType());
+                    CharacterDiedInBattleEventArgs diedArgs = new CharacterDiedInBattleEventArgs(currentFighter, message);
+                    CharacterDiedInBattle(currentFighter, diedArgs);
                 }
             }
         }

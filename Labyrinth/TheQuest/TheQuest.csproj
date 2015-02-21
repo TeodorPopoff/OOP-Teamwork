@@ -42,6 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations\WallType.cs" />
+    <Compile Include="Events\CharacterDiedInBattleEventArgs.cs" />
+    <Compile Include="Events\CharacterDiedInBattleEventHandler.cs" />
+    <Compile Include="Events\CharacterJoinedTheTeamEventArgs.cs" />
+    <Compile Include="Events\CharacterJoinedTheTeamEventHandler.cs" />
+    <Compile Include="Events\CharacterLeftTheTeamEventArgs.cs" />
+    <Compile Include="Events\CharacterLeftTheTeamEventHandler.cs" />
     <Compile Include="Objects\Character.cs" />
     <Compile Include="Objects\Elves\Elrond.cs" />
     <Compile Include="Objects\Elves\Elve.cs" />
