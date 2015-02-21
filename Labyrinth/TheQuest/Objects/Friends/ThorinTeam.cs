@@ -14,12 +14,11 @@ namespace TheQuest
         private int ridingDistance = 0;
         private int flyingDistance = 0;
 
-<<<<<<< HEAD
+
         public event CharacterJoinedTheTeamEventHandler CharacterJoinedTheTeam;
         public event CharacterLeftTheTeamEventHandler CharacterLeftTheTeam;
         public event CharacterDiedInBattleEventHandler CharacterDiedInBattle;
-=======
->>>>>>> origin/master
+
 
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
