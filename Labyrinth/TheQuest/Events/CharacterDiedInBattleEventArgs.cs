@@ -4,16 +4,16 @@ namespace TheQuest.Events
 {
     public class CharacterDiedInBattleEventArgs : EventArgs 
     {
-        private Character character;
+        private Friend character;
         private string message;
 
-        public CharacterDiedInBattleEventArgs(Character character, string message)
+        public CharacterDiedInBattleEventArgs(Friend character, string message)
         {
             this.Character = character;
             this.Message = message;
         }
 
-        public Character Character
+        public Friend Character
         {
             get
             {

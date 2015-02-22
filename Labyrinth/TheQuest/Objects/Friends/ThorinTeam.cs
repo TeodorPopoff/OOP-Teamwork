@@ -14,11 +14,9 @@ namespace TheQuest
         private int ridingDistance = 0;
         private int flyingDistance = 0;
 
-
         public event CharacterJoinedTheTeamEventHandler CharacterJoinedTheTeam;
         public event CharacterLeftTheTeamEventHandler CharacterLeftTheTeam;
         public event CharacterDiedInBattleEventHandler CharacterDiedInBattle;
-
 
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
@@ -234,6 +232,44 @@ namespace TheQuest
         public override void Move(Direction direction, int step = 1)
         {
             base.Move(direction);
+            int newRow = this.Position.Y;
+            int newCol = this.Position.X;
+
+            switch (direction)
+            {
+                case Direction.Up:
+                    if (newRow - step >= 0)
+                    {
+                        newRow -= step;
+                    }
+                    break;
+
+                case Direction.Right:
+                    if (newCol + step < ConsoleSettings.ConsoleWidth)
+                    {
+                        newCol += step;
+                    }
+                    break;
+
+                case Direction.Down:
+                    if (newRow + step < ConsoleSettings.ConsoleHeight)
+                    {
+                        newRow += step;
+                    }
+                    break;
+
+                case Direction.Left:
+                    if (newCol - step >= 0)
+                    {
+                        newCol -= step;
+                    }
+                    break;
+
+                default:
+                    throw new InvalidOperationException("Invalid direction provided.");
+            }
+            this.Position = new Location(newCol, newRow);
+
 
             foreach (Friend member in this.companions)
             {

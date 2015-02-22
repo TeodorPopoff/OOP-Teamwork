@@ -1,4 +1,4 @@
 ﻿namespace TheQuest.Events
 {
-    public delegate void CharacterLeftTheTeamEventHandler(Character character, CharacterLeftTheTeamEventArgs eventArgs);
+    public delegate void CharacterLeftTheTeamEventHandler(Friend character, CharacterLeftTheTeamEventArgs eventArgs);
 }

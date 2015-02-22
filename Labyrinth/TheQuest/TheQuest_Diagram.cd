@@ -7,190 +7,171 @@
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Character.cs</FileName>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Objects\Character.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TheQuest.GameEngine" Collapsed="true">
     <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AJAAAAAwAEIAAJAAAwgKAAAACwGAAgEgBAAAAAkQAAI=</HashCode>
+      <HashCode>AJAAABAwIEIAAJAAAwgKAAAADwmAAgEgBAAAAEkQAAI=</HashCode>
       <FileName>Engine\GameEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TheQuest.Magician" Collapsed="true">
     <Position X="8.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIAAACAAA=</HashCode>
-      <FileName>Classes\Magicians\Magician.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\Magician.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Dwarf" Collapsed="true">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAIAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAEACAA=</HashCode>
-      <FileName>Classes\Friends\Dwarf.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Friends\Dwarf.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Ork" Collapsed="true">
     <Position X="11" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Enemies\Ork.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Enemies\Ork.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Goblin" Collapsed="true">
     <Position X="11" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Enemies\Goblin.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Enemies\Goblin.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Troll" Collapsed="true">
     <Position X="11" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Enemies\Troll.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Enemies\Troll.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Elve" Collapsed="true">
     <Position X="6.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Elves\Elve.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Elves\Elve.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Legolas" Collapsed="true">
     <Position X="6.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Elves\Legolas.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Elves\Legolas.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Tauriel" Collapsed="true">
     <Position X="6.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Elves\Tauriel.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Elves\Tauriel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Gandalf" Collapsed="true">
     <Position X="8.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Magicians\Gandalf.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\Gandalf.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Radagast" Collapsed="true">
     <Position X="8.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Magicians\Radagast.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\Radagast.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Saruman" Collapsed="true">
     <Position X="8.75" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Magicians\Saruman.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\Saruman.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Elrond" Collapsed="true">
     <Position X="6.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIAAAACAA=</HashCode>
-      <FileName>Classes\Elves\Elrond.cs</FileName>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAASIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Elves\Elrond.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Warg" Collapsed="true">
     <Position X="11" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Enemies\Warg.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Enemies\Warg.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Sauron" Collapsed="true">
     <Position X="8.75" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Magicians\Sauron.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\Sauron.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Necromancer" Collapsed="true">
     <Position X="8.75" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Magicians\Necromancer.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\Necromancer.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.AngmarKing" Collapsed="true">
     <Position X="8.75" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Magicians\AngmarKing.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Magicians\AngmarKing.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Galadriel" Collapsed="true">
     <Position X="8.75" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAAIAAAACAA=</HashCode>
-      <FileName>Classes\Elves\Galadriel.cs</FileName>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAASIAAAAABAAAIAAAAAAA=</HashCode>
+      <FileName>Objects\Elves\Galadriel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Thranduil" Collapsed="true">
     <Position X="8.75" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Elves\Thranduil.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Elves\Thranduil.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Eagles" Collapsed="true">
     <Position X="18.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Friends\Eagle.cs</FileName>
+      <HashCode>AAAAAAAQAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Items\Eagles.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Bear" Collapsed="true">
     <Position X="2.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Friends\Bear.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Friends\Bear.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Hobbit" Collapsed="true">
     <Position X="4" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Friends\Hobbit.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Friends\Hobbit.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.RingBearer" Collapsed="true">
     <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Friends\RingBearer.cs</FileName>
+      <HashCode>BAAAAAAIAAAgCAAAAAAAAAAACAAAAAIAAAAACAAACIA=</HashCode>
+      <FileName>Objects\Friends\RingBearer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -198,30 +179,30 @@
     <Position X="14.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Item.cs</FileName>
+      <FileName>Objects\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TheQuest.Food" Collapsed="true">
     <Position X="13" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Items\Food.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Items\Food.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Horses" Collapsed="true">
     <Position X="14.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Items\Watter.cs</FileName>
+      <HashCode>AAAAAAIAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Items\Horses.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.Weapons" Collapsed="true">
     <Position X="16.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAA=</HashCode>
-      <FileName>Classes\Items\Weapons.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Objects\Items\Weapons.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -235,15 +216,8 @@
   <Class Name="TheQuest.ThorinTeam" Collapsed="true">
     <Position X="2.25" Y="13" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Classes\Friends\ThorinTeam.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="TheQuest.Bears" Collapsed="true">
-    <Position X="2.25" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Friends\Bears.cs</FileName>
+      <HashCode>AEAAQABBAIAoAAAEAoAAAAUBogBACUAAAAIAAAEACAA=</HashCode>
+      <FileName>Objects\Friends\ThorinTeam.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TheQuest.Elves" Collapsed="true">
@@ -257,7 +231,7 @@
     <Position X="5.75" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Magicians\Magicians.cs</FileName>
+      <FileName>Objects\Magicians\Magicians.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TheQuest.Orks" Collapsed="true">
@@ -284,14 +258,14 @@
   <Class Name="TheQuest.GameObject" Collapsed="true">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Classes\GameObject.cs</FileName>
+      <HashCode>AAAIAAAAAAAgAAAgIAAAIAQAAAAEAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Objects\GameObject.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TheQuest.KeyListener" Collapsed="true">
     <Position X="2.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAQAAAAAAAAEAAEAAAAAAgAAAAAAAAAAAACAA=</HashCode>
       <FileName>Engine\KeyListener.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -326,14 +300,14 @@
   <Interface Name="TheQuest.ISpy" Collapsed="true">
     <Position X="18.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAIA=</HashCode>
       <FileName>Interfaces\ISpy.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TheQuest.IMove" Collapsed="true">
     <Position X="18.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IMove.cs</FileName>
     </TypeIdentifier>
   </Interface>

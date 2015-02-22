@@ -1,4 +1,4 @@
 ﻿namespace TheQuest.Events
 {
-    public delegate void CharacterDiedInBattleEventHandler(Character character, CharacterDiedInBattleEventArgs eventArgs);
+    public delegate void CharacterDiedInBattleEventHandler(Friend character, CharacterDiedInBattleEventArgs eventArgs);
 }
