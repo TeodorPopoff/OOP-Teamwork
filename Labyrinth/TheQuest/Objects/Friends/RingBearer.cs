@@ -2,10 +2,9 @@
 
 namespace TheQuest
 {
-    public class RingBearer : Hobbit, IFriend, ISpy
+    public class RingBearer : Hobbit, ISpy
     {
         private int battleStrength = 50;
-        private bool isAlive = true;
         //what range around us it will uncover if we use it.
         private int range = 5;
         //how many times it can do it.
@@ -17,16 +16,9 @@ namespace TheQuest
         public RingBearer(Location position)
             : base("Bilbo Baggins", position)
         {
+            base.BattleStrength = this.battleStrength;
             base.symbol = "U+1F48D";
             base.description = "This hobbit is special. He has a secret - he has a ring that makes him invisible!";
-        }
-
-        public override bool IsAlive
-        {
-            get
-            {
-                return this.IsAlive;
-            }
         }
 
         public override string Description
@@ -42,23 +34,6 @@ namespace TheQuest
             get
             {
                 return base.symbol;
-            }
-        }
-
-        public override int BattleStrength
-        {
-            get
-            {
-                return this.battleStrength;
-            }
-
-            set
-            {
-                if (value <= 0)
-                {
-                    this.isAlive = false;
-                }
-                this.battleStrength = value;
             }
         }
 

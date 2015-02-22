@@ -2,24 +2,16 @@
 
 namespace TheQuest
 {
-    public class Bear : Character, IFriend
+    public class Bear : Friend
     {
         private int battleStrength = 200;
-        private bool isAlive = true;
 
         public Bear(string name, Location position)
             : base(name, position)
         {
+            base.BattleStrength = this.battleStrength;
             base.symbol = "U+1F43E";
             base.description = "Strong and fearless animal. A good friend to have on your side.";
-        }
-
-        public override bool IsAlive
-        {
-            get
-            {
-                return this.IsAlive;
-            }
         }
 
         public override string Description
@@ -35,23 +27,6 @@ namespace TheQuest
             get
             {
                 return base.symbol;
-            }
-        }
-
-        public override int BattleStrength
-        {
-            get
-            {
-                return this.battleStrength;
-            }
-
-            set
-            {
-                if (value <= 0)
-                {
-                    this.isAlive = false;
-                }
-                this.battleStrength = value;
             }
         }
     }

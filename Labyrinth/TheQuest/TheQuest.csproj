@@ -59,6 +59,8 @@
     <Compile Include="Objects\Enemies\Ork.cs" />
     <Compile Include="Objects\Enemies\Troll.cs" />
     <Compile Include="Objects\Enemies\Warg.cs" />
+    <Compile Include="Objects\Enemy.cs" />
+    <Compile Include="Objects\Friend.cs" />
     <Compile Include="Objects\Friends\Bear.cs" />
     <Compile Include="Objects\Friends\Dwarf.cs" />
     <Compile Include="Objects\Items\Eagles.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="ConsoleThings\ConsoleSettings.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\KeyListener.cs" />
+    <Compile Include="Objects\MovingObject.cs" />
     <Compile Include="Objects\Wall.cs" />
     <Compile Include="TheQuest.cs" />
     <Compile Include="Enumerations\Direction.cs" />

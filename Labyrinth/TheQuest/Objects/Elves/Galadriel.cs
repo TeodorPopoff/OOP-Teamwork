@@ -14,9 +14,16 @@
             get { return this._spellPower; }
         }
 
-        public int Presence
+        int IMagician.Presence
         {
-            get { return _presence; }
+            get
+            {
+                return _presence;
+            }
+            set
+            {
+                this._presence = value;
+            }
         }
     }
 }

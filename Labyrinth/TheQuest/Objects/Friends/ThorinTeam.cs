@@ -5,9 +5,9 @@ using TheQuest.Events;
 
 namespace TheQuest
 {
-    public class ThorinTeam : GameObject, IMove
+    public class ThorinTeam : Friend
     {
-        private List<Character> companions;
+        private List<Friend> companions;
         private bool isAlive;
         private bool canRide = false;
         private bool canFly = false;
@@ -30,6 +30,7 @@ namespace TheQuest
             Dwarf thorin = new Dwarf(
                 "Thorin",
                 new Location(0, 0));
+            this.companions = new List<Friend>();
             this.companions.Add(thorin);
             base.symbol = thorin.Symbol;
             base.description = "Our group of brave and loyal friends.";
@@ -65,7 +66,7 @@ namespace TheQuest
             get
             {
                 int strength = 0;
-                foreach (Character companion in this.companions)
+                foreach (IFriend companion in this.companions)
                 {
                     strength += companion.BattleStrength;
                 }
@@ -112,7 +113,7 @@ namespace TheQuest
         /// </summary>
         /// <param name="companion">The Character object to add.</param>
         /// <returns>Fires event each time a companion is added.</returns>
-        public void AddCompanion(Character companion)
+        public void AddCompanion(Friend companion)
         {
             if (!(companion is IFriend))
             {
@@ -121,7 +122,7 @@ namespace TheQuest
 
             if (companion is IMagician)
             {
-                foreach (Character member in this.companions)
+                foreach (IFriend member in this.companions)
                 {
                     member.BattleStrength *= (companion as IMagician).SpellPower;
                 }
@@ -140,7 +141,7 @@ namespace TheQuest
         /// </summary>
         /// <param name="companion">The Character to remove.</param>
         /// <returns>Void</returns>
-        public void RemoveCompanion(Character companion)
+        public void RemoveCompanion(Friend companion)
         {
             if (!this.companions.Contains(companion))
             {
@@ -151,7 +152,7 @@ namespace TheQuest
 
             if (companion is IMagician)
             {
-                foreach (Character member in this.companions)
+                foreach (IFriend member in this.companions)
                 {
                     member.BattleStrength /= (companion as IMagician).SpellPower;
                 }
@@ -230,14 +231,11 @@ namespace TheQuest
         /// </summary>
         /// <param name="direction">In what direction to move.</param>
         /// <param name="step">What distance to move.</param>
-        public void Move(Direction direction, int step)
+        public override void Move(Direction direction, int step = 1)
         {
-            foreach (Character companion in this.companions)
-            {
-                companion.Move(direction, step);
-            }
+            base.Move(direction);
 
-            foreach (Character member in this.companions)
+            foreach (Friend member in this.companions)
             {
                 if (member is IMagician)
                 {
@@ -260,7 +258,7 @@ namespace TheQuest
         /// Fires event every time when a member of the team dies in the battle.
         /// </summary>
         /// <param name="enemy">The enemy to fight with.</param>
-        public void Fight(Character enemy)
+        public void Fight(Friend enemy)
         {
             if (!(enemy is IEnemy))
             {
@@ -275,19 +273,20 @@ namespace TheQuest
 
             while (enemy.BattleStrength > 0)
             {
-                Character currentFighter = this.companions[this.companions.Count - 1];
+                Friend currentFighter = this.companions[this.companions.Count - 1];
                 int fighterStrength = currentFighter.BattleStrength;
                 currentFighter.BattleStrength -= enemy.BattleStrength;
+                enemy.BattleStrength -= fighterStrength;
 
                 if (!currentFighter.IsAlive)
                 {
-                    enemy.BattleStrength -= fighterStrength;
                     this.RemoveCompanion(currentFighter);
-                    string message = string.Format("{0} perished in battle with evil {1}s. Eternal glory upon his name!",
-                        currentFighter.Name, enemy.GetType());
-                    CharacterDiedInBattleEventArgs diedArgs = new CharacterDiedInBattleEventArgs(currentFighter, message);
-                    CharacterDiedInBattle(currentFighter, diedArgs);
                 }
+                    
+                string message = string.Format("{0} perished in battle with evil {1}s. Eternal glory upon his name!",
+                    currentFighter.Name, enemy.GetType());
+                CharacterDiedInBattleEventArgs diedArgs = new CharacterDiedInBattleEventArgs(currentFighter, message);
+                CharacterDiedInBattle(currentFighter, diedArgs);
             }
         }
 

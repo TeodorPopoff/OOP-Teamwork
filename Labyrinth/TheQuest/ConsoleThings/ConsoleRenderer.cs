@@ -7,13 +7,13 @@ namespace TheQuest
 {
     public class ConsoleRenderer
     {
-        private char[,] world;
+        private string[,] world;
         private int rows;
         private int cols;
 
         public ConsoleRenderer(int rows, int cols)
         {
-            this.world = new char[rows, cols];
+            this.world = new string[rows, cols];
             this.ClearQueue();
             this.Rows = rows;
             this.Cols = cols;
@@ -33,7 +33,7 @@ namespace TheQuest
 
         public void EnqueueForRendering(GameObject obj)
         {
-            char symbol = obj.Symbol;
+            string symbol = obj.Symbol;
             int row = obj.Position.Y;
             int col = obj.Position.X;
 
@@ -44,7 +44,7 @@ namespace TheQuest
         {
             foreach (var obj in objects)
             {
-                char symbol = obj.Symbol;
+                string symbol = obj.Symbol;
                 int row = obj.Position.Y;
                 int col = obj.Position.X;
 
@@ -61,7 +61,7 @@ namespace TheQuest
             {
                 for (int col = 0; col < this.world.GetLength(1); col++)
                 {
-                    char symbol = this.world[row, col];
+                    string symbol = this.world[row, col];
                     output.Append(this.world[row, col]);
                 }
                 output.Append(Environment.NewLine);
@@ -76,7 +76,7 @@ namespace TheQuest
             {
                 for (int col = 0; col < this.world.GetLength(1); col++)
                 {
-                    this.world[row, col] = ' ';
+                    this.world[row, col] = " ";
                 }
             }
         }
