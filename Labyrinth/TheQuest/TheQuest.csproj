@@ -74,12 +74,9 @@
     <Compile Include="Objects\Items\Weapons.cs" />
     <Compile Include="Objects\Magicians\AngmarKing.cs" />
     <Compile Include="Objects\Magicians\Gandalf.cs" />
-    <Compile Include="Objects\Magicians\Magician.cs" />
-    <Compile Include="Objects\Magicians\Magicians.cs" />
     <Compile Include="Objects\Magicians\Necromancer.cs" />
     <Compile Include="Objects\Magicians\Radagast.cs" />
     <Compile Include="Objects\Magicians\Saruman.cs" />
-    <Compile Include="Objects\Magicians\Sauron.cs" />
     <Compile Include="ConsoleThings\ConsoleRenderer.cs" />
     <Compile Include="ConsoleThings\ConsoleSettings.cs" />
     <Compile Include="Engine\GameEngine.cs" />

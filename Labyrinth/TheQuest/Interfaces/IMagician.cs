@@ -2,7 +2,7 @@
 {
     public interface IMagician
     {
-        int SpellPower { get; }
+        double SpellPower { get; }
         /// <summary>
         /// For how many moves the magiciam will stay with us
         /// </summary>
