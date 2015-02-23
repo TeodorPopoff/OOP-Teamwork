@@ -17,7 +17,7 @@ namespace TheQuest
             : base("Bilbo Baggins", position)
         {
             base.BattleStrength = this.battleStrength;
-            base.symbol = "U+1F48D";
+            base.symbol = "Bi";
             base.description = "This hobbit is special. He has a secret - he has a ring that makes him invisible!";
         }
 

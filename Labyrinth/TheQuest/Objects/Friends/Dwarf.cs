@@ -10,7 +10,7 @@ namespace TheQuest
             : base(name, position)
         {
             base.BattleStrength = this.battleStrength;
-            base.symbol = "u+26E8";
+            base.symbol = "D";
             base.description = "A strong warrior, fearsome in battle. Skilled with an axe and shield.";
         }
 

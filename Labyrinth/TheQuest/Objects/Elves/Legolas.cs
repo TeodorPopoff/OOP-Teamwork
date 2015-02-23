@@ -5,7 +5,7 @@ namespace TheQuest
     public sealed class Legoas : Elf, IMagician
     {
         private bool _isAlive = true;
-        private char _symbol = 'G';
+        private char _symbol = 'L';
         private int _presence;
         private int _spellPower;
         private static Location _position;

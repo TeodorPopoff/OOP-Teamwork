@@ -8,7 +8,7 @@
             : base(name, position)
         {
             BattleStrength = battleStrength;
-            symbol = "u+26E8";
+            symbol = "E";
             description = "A skilled archer, and magician very wise in battle";
         }
 

@@ -30,7 +30,7 @@ namespace TheQuest
                 new Location(0, 0));
             this.companions = new List<Friend>();
             this.companions.Add(thorin);
-            base.symbol = thorin.Symbol;
+            base.symbol = "T";
             base.description = "Our group of brave and loyal friends.";
         }
 

@@ -13,7 +13,7 @@ namespace TheQuest
         {
             Random rnd = new Random();
             this.presence = rnd.Next(1, 4);
-            base.symbol = "U+1F440";
+            base.symbol = "N";
             base.description = "The evil master of Dol Goldur. ";
         }
 

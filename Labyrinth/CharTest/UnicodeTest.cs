@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace CharTest
 {
-    class Program
+    class UnicodeTest
     {
         static void Main(string[] args)
         {
+
+
             Console.OutputEncoding = Encoding.UTF8;
-            Console.WriteLine("Ĥėļŀō ŵŏŗłđ");
+            //Console.WriteLine("Ĥėļŀō ŵŏŗłđ");
 
             //Console.OutputEncoding = System.Text.Encoding.Unicode;
-            byte[] testUnicode = new byte[] { 240, 159, 145, 186 };
+            byte[] testUnicode = new byte[] { 196, 160 };
             string unicodeSymbol = Encoding.UTF8.GetString(testUnicode);
             Console.WriteLine(unicodeSymbol);
-            
+            string anotherTest = "U+0120";
+
         }
+
+        
     }
 }

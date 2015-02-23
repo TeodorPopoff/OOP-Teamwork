@@ -10,7 +10,7 @@ namespace TheQuest
             : base(name, position)
         {
             base.BattleStrength = this.battleStrength;
-            base.symbol = "U+AB58";
+            base.symbol = "H";
             base.description = "A small creature, not trained for combat. But good companion nonethless for it is intelligent and capable of brightenning the mood of the whole company.";
         }
 

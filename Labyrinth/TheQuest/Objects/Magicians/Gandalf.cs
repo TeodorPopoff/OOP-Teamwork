@@ -13,7 +13,7 @@ namespace TheQuest
         {
             Random rnd = new Random();
             this.presence = rnd.Next(1, 8);
-            base.symbol = "U+1F3A9";
+            base.symbol = "Ga";
             base.description = "Gandalf the Grey they call him. A wise and good natured magicion. True protector of our team.";
         }
 

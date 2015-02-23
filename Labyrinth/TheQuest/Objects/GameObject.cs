@@ -47,9 +47,16 @@ namespace TheQuest
             get;
         }
 
-        public abstract string Symbol
+        public string Symbol
         {
-            get;
+            get
+            {
+                return this.symbol;
+            }
+            protected set
+            {
+
+            }
         }
         /// <summary>
         /// The location of the character on the battlefield
