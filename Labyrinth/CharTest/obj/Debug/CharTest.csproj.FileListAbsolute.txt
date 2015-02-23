@@ -1,0 +1,6 @@
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\CharTest\bin\Debug\CharTest.exe.config
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\CharTest\bin\Debug\CharTest.exe
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\CharTest\bin\Debug\CharTest.pdb
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\CharTest\obj\Debug\CharTest.csprojResolveAssemblyReference.cache
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\CharTest\obj\Debug\CharTest.exe
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork\Labyrinth\CharTest\obj\Debug\CharTest.pdb
