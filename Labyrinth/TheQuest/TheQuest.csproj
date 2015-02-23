@@ -42,12 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations\WallType.cs" />
-    <Compile Include="Events\CharacterDiedInBattleEventArgs.cs" />
-    <Compile Include="Events\CharacterDiedInBattleEventHandler.cs" />
-    <Compile Include="Events\CharacterJoinedTheTeamEventArgs.cs" />
-    <Compile Include="Events\CharacterJoinedTheTeamEventHandler.cs" />
-    <Compile Include="Events\CharacterLeftTheTeamEventArgs.cs" />
-    <Compile Include="Events\CharacterLeftTheTeamEventHandler.cs" />
+    <Compile Include="Events\FriendDiedInBattleEventArgs.cs" />
+    <Compile Include="Events\FriendDiedInBattleEventHandler.cs" />
+    <Compile Include="Events\FriendJoinedTheTeamEventArgs.cs" />
+    <Compile Include="Events\FriendJoinedTheTeamEventHandler.cs" />
+    <Compile Include="Events\FriendLeftTheTeamEventArgs.cs" />
+    <Compile Include="Events\FriendLeftTheTeamEventHandler.cs" />
     <Compile Include="Objects\Character.cs" />
     <Compile Include="Objects\Elves\Elrond.cs" />
     <Compile Include="Objects\Elves\Elve.cs" />

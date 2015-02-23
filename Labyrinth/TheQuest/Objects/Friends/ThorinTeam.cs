@@ -8,15 +8,15 @@ namespace TheQuest
     public class ThorinTeam : Friend
     {
         private List<Friend> companions;
-        private bool isAlive;
+        //private bool isAlive;
         private bool canRide = false;
         private bool canFly = false;
         private int ridingDistance = 0;
         private int flyingDistance = 0;
 
-        public event CharacterJoinedTheTeamEventHandler CharacterJoinedTheTeam;
-        public event CharacterLeftTheTeamEventHandler CharacterLeftTheTeam;
-        public event CharacterDiedInBattleEventHandler CharacterDiedInBattle;
+        public event FriendJoinedTheTeamEventHandler FriendJoinedTheTeam;
+        public event FriendLeftTheTeamEventHandler FriendLeftTheTeam;
+        public event FriendDiedInBattleEventHandler FriendDiedInBattle;
 
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
@@ -129,8 +129,8 @@ namespace TheQuest
             this.companions.Add(companion);
             string message = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
                 companion.Name, this.Strength);
-            CharacterJoinedTheTeamEventArgs joinedEventArgs = new CharacterJoinedTheTeamEventArgs(companion, message);
-            CharacterJoinedTheTeam(companion, joinedEventArgs);
+            FriendJoinedTheTeamEventArgs joinedEventArgs = new FriendJoinedTheTeamEventArgs(companion, message);
+            FriendJoinedTheTeam(companion, joinedEventArgs);
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace TheQuest
 
             if (this.companions.Count == 0)
             {
-                this.isAlive = false;
+                base.IsAlive = false;
             }
             //else
             //{
@@ -281,8 +281,8 @@ namespace TheQuest
                         RemoveCompanion(member);
                         string message = string.Format("{0} has juft left the team on some magician's business. Your strength has now decreased to {1}.",
                             member.Name, this.Strength);
-                        CharacterLeftTheTeamEventArgs leftArgs = new CharacterLeftTheTeamEventArgs(member, message);
-                        this.CharacterLeftTheTeam(member, leftArgs);
+                        FriendLeftTheTeamEventArgs leftArgs = new FriendLeftTheTeamEventArgs(member, message);
+                        this.FriendLeftTheTeam(member, leftArgs);
                     }
                 }
             }
@@ -303,7 +303,7 @@ namespace TheQuest
             int teamStrengthAtBattleStart = this.Strength;
             if (teamStrengthAtBattleStart <= enemy.BattleStrength)
             {
-                this.isAlive = false;
+                base.IsAlive = false;
                 return;
             }
 
@@ -321,8 +321,8 @@ namespace TheQuest
                     
                 string message = string.Format("{0} perished in battle with evil {1}s. Eternal glory upon his name!",
                     currentFighter.Name, enemy.GetType());
-                CharacterDiedInBattleEventArgs diedArgs = new CharacterDiedInBattleEventArgs(currentFighter, message);
-                CharacterDiedInBattle(currentFighter, diedArgs);
+                FriendDiedInBattleEventArgs diedArgs = new FriendDiedInBattleEventArgs(currentFighter, message);
+                FriendDiedInBattle(currentFighter, diedArgs);
             }
         }
 

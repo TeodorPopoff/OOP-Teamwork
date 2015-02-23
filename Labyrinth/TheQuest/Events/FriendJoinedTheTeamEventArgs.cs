@@ -2,26 +2,26 @@
 
 namespace TheQuest.Events
 {
-    public class CharacterDiedInBattleEventArgs : EventArgs 
+    public class FriendJoinedTheTeamEventArgs : EventArgs 
     {
-        private Friend character;
+        private Friend aFriend;
         private string message;
 
-        public CharacterDiedInBattleEventArgs(Friend character, string message)
+        public FriendJoinedTheTeamEventArgs(Friend aFriend, string message)
         {
-            this.Character = character;
+            this.Friend = aFriend;
             this.Message = message;
         }
 
-        public Friend Character
+        public Friend Friend
         {
             get
             {
-                return this.character;
+                return this.aFriend;
             }
             set
             {
-                this.character = value;
+                this.aFriend = value;
             }
         }
 
