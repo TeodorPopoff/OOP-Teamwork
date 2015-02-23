@@ -1,4 +1,4 @@
-﻿                namespace TheQuest
+﻿namespace TheQuest
 {
     public interface IMagician
     {

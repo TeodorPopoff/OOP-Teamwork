@@ -4,7 +4,7 @@ namespace TheQuest
 {
     class TheQuest
     {
-        static void Main(string[] args)
+        static void Main()
         {
             KeyListener keyboard = new KeyListener();
             ConsoleRenderer renderer = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);

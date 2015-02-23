@@ -50,7 +50,7 @@
     <Compile Include="Events\FriendLeftTheTeamEventHandler.cs" />
     <Compile Include="Objects\Character.cs" />
     <Compile Include="Objects\Elves\Elrond.cs" />
-    <Compile Include="Objects\Elves\Elve.cs" />
+    <Compile Include="Objects\Elves\Elf.cs" />
     <Compile Include="Objects\Elves\Galadriel.cs" />
     <Compile Include="Objects\Elves\Legolas.cs" />
     <Compile Include="Objects\Elves\Tauriel.cs" />

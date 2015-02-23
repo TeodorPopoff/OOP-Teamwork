@@ -14,3 +14,6 @@ C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\bin\Debug\TheQu
 C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQuest.exe
 C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQuest.pdb
 C:\Users\Teodor\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQuest.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\OOP-Teamwork (GitHub for Windows)\Labyrinth\TheQuest\bin\Debug\TheQuest.exe.config
+C:\Users\User\Documents\GitHub\OOP-Teamwork (GitHub for Windows)\Labyrinth\TheQuest\obj\Debug\TheQuest.exe
+C:\Users\User\Documents\GitHub\OOP-Teamwork (GitHub for Windows)\Labyrinth\TheQuest\obj\Debug\TheQuest.pdb

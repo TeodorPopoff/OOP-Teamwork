@@ -9,7 +9,7 @@
 
 
 
-        public int SpellPower
+        public double SpellPower
         {
             get { return this._spellPower; }
         }
