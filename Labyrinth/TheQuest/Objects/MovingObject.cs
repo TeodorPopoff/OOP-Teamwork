@@ -4,6 +4,7 @@ namespace TheQuest
     public abstract class MovingObject : GameObject, IMove
     {
         private string defaultSymbol = "@";
+        private Location oldPosition;
 
         public MovingObject(string name, Location position)
             :base(name, position)
@@ -15,6 +16,7 @@ namespace TheQuest
         {
             int newRow = this.Position.Y;
             int newCol = this.Position.X;
+            this.oldPosition = new Location(this.Position.X, this.Position.Y);
 
             switch (direction)
             {
@@ -50,6 +52,11 @@ namespace TheQuest
                     throw new InvalidOperationException("Invalid direction provided.");
             }
             this.Position = new Location(newCol, newRow);
+        }
+
+        public void MoveBack()
+        {
+            this.Position = new Location(this.oldPosition.X, this.oldPosition.Y);
         }
     }
 }

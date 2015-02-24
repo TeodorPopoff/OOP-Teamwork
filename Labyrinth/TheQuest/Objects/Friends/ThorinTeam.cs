@@ -25,13 +25,13 @@ namespace TheQuest
         public ThorinTeam()
             : base("Thorin's Team", new Location(1, 1))
         {
-            //Dwarf thorin = new Dwarf(
-            //    "Thorin",
-            //    new Location(1, 1));
+            Dwarf thorin = new Dwarf(
+                "Thorin",
+                new Location(0, 0));
             this.companions = new List<Friend>();
-            //this.companions.Add(thorin);
+            this.companions.Add(thorin);
             base.symbol = "T";
-            //base.description = "Our group of brave and loyal friends.";
+            base.description = "Our group of brave and loyal friends.";
         }
 
         /// <summary>
@@ -214,41 +214,7 @@ namespace TheQuest
             int newRow = this.Position.Y;
             int newCol = this.Position.X;
 
-            switch (direction)
-            {
-                case Direction.Up:
-                    if (newRow - step >= 0)
-                    {
-                        newRow -= step;
-                    }
-                    break;
-
-                case Direction.Right:
-                    if (newCol + step < ConsoleSettings.ConsoleWidth)
-                    {
-                        newCol += step;
-                    }
-                    break;
-
-                case Direction.Down:
-                    if (newRow + step < ConsoleSettings.ConsoleHeight)
-                    {
-                        newRow += step;
-                    }
-                    break;
-
-                case Direction.Left:
-                    if (newCol - step >= 0)
-                    {
-                        newCol -= step;
-                    }
-                    break;
-
-                default:
-                    throw new InvalidOperationException("Invalid direction provided.");
-            }
             this.Position = new Location(newCol, newRow);
-
 
             foreach (Friend member in this.companions)
             {
@@ -273,7 +239,7 @@ namespace TheQuest
         /// Fires event every time when a member of the team dies in the battle.
         /// </summary>
         /// <param name="enemy">The enemy to fight with.</param>
-        public void Fight(Friend enemy)
+        public void Fight(Enemy enemy)
         {
             if (!(enemy is IEnemy))
             {

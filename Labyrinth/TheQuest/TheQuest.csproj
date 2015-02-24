@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\BattleEngine.cs" />
     <Compile Include="Engine\BattleHandler.cs" />
     <Compile Include="Engine\CollisionDispatcher.cs" />
     <Compile Include="Enumerations\WallType.cs" />

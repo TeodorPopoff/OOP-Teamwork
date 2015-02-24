@@ -7,24 +7,11 @@ namespace TheQuest
     /// </summary>
     public abstract class Character : MovingObject
     {
-        private bool isAlive;
 
         protected Character(string name, Location position)
             : base(name, position)
         {
-            this.IsAlive = true;
-        }
 
-        public bool IsAlive
-        {
-            get
-            {
-                return this.isAlive;
-            }
-            set
-            {
-                this.isAlive = value;
-            }
         }
 
 

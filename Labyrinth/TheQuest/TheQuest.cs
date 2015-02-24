@@ -9,7 +9,6 @@ namespace TheQuest
     {
         static void Main()
         {
-
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 
             Console.OutputEncoding = System.Text.Encoding.Unicode;
@@ -20,6 +19,7 @@ namespace TheQuest
             Friend mainChar = new Dwarf("asd", new Location(2, 2));
             Enemy enemy = new Ork("ork", new Location(3, 3));
             ThorinTeam team = new ThorinTeam();
+            Elrond elrond = new Elrond("elrond", new Location(10, 10));
             team.AddCompanion(mainChar);
 
             Console.BufferHeight = Console.WindowHeight; // Remove the scrollbar
@@ -29,6 +29,7 @@ namespace TheQuest
             keyboard.OnLeftPressed += (sender, eventInfo) => { team.Move(Direction.Left); };
             keyboard.OnRightPressed += (sender, eventInfo) => { team.Move(Direction.Right); };
 
+            engine.AddObject(elrond);
             engine.AddObject(team);
             engine.AddObject(enemy);
 

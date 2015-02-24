@@ -8,42 +8,42 @@ namespace TheQuest
 {
     class BattleHandler
     {
-        private Friend attacker;
-        private Enemy defender;
+        private Friend friend;
+        private Enemy enemy;
 
-        public BattleHandler(Friend attacker, Enemy defender)
+        public BattleHandler(Friend friend, Enemy enemy)
         {
-            this.Attacker = attacker;
-            this.Defender = defender;
+            this.Friend = friend;
+            this.Enemy = enemy;
         }
 
-        public Enemy Defender
+        public Enemy Enemy
         {
             get
             {
-                return this.defender;
+                return this.enemy;
             }
             set
             {
-                this.defender = value;
+                this.enemy = value;
             }
         }
 
-        public Friend Attacker
+        public Friend Friend
         {
             get
             {
-                return this.attacker;
+                return this.friend;
             }
             set
             {
-                this.attacker = value;
+                this.friend = value;
             }
         }
 
         public static bool operator true(BattleHandler asd)
         {
-            if (asd.attacker != null && asd.defender != null)
+            if (asd.friend != null && asd.enemy != null)
             {
                 return true;
             }
@@ -55,7 +55,7 @@ namespace TheQuest
 
         public static bool operator false(BattleHandler asd)
         {
-            if (asd.attacker == null && asd.defender == null)
+            if (asd.friend == null && asd.enemy == null)
             {
                 return true;
             }

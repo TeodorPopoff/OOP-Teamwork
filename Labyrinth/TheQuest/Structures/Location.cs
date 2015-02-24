@@ -45,5 +45,29 @@
                 this.y = value;
             }
         }
+
+        public static bool operator ==(Location a, Location b)
+        {
+            if (a.X == b.X && a.Y == b.Y)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool operator !=(Location a, Location b)
+        {
+            if (a.X == b.X && a.Y == b.Y)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

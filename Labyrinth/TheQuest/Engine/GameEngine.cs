@@ -11,16 +11,24 @@ namespace TheQuest
         private const int BattlefieldWidth = 1;
         private const int BattlefieldHeight = 1;
         private const int MaxNumberOfCharacters = 1;
-        private ICollection<GameObject> allObjects;
+        private List<GameObject> allObjects;
+        private List<Enemy> allEnemies;
+        private List<Friend> allFriends;
+        private List<Wall> allWalls;
         private KeyListener userInterface;
-        private ConsoleRenderer batleField;
+        private ConsoleRenderer battleField;
         private ThorinTeam team;
 
         public GameEngine(KeyListener userInterface, ConsoleRenderer batleField)
         {
             this.userInterface = userInterface;
-            this.batleField = batleField;
+            this.battleField = batleField;
+
             this.allObjects = new List<GameObject>();
+            this.allEnemies = new List<Enemy>();
+            this.allWalls = new List<Wall>();
+            this.allFriends = new List<Friend>();
+
             this.DrawBorder();
         }
 
@@ -38,20 +46,20 @@ namespace TheQuest
 
         private void DrawBorder()
         {
-            for (int row = 0; row < this.batleField.Rows; row++)
+            for (int row = 0; row < this.battleField.Rows; row++)
             {
                 char horizontalWall = (char)(int)Enum.Parse(typeof(WallType), WallType.Horizontal.ToString());
                 Wall leftHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, 0));
-                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, this.batleField.Cols - 1));
+                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, this.battleField.Cols - 1));
                 this.AddObject(leftHorizontalWall);
                 this.AddObject(rightHorizontalWall);
             }
 
-            for (int col = 0; col < this.batleField.Cols; col++)
+            for (int col = 0; col < this.battleField.Cols; col++)
             {
                 char verticalWall = (char)(int)Enum.Parse(typeof(WallType), WallType.Vertical.ToString());
                 Wall leftVerticalWall = new Wall(verticalWall.ToString(), new Location(0, col));
-                Wall rightVerticalWall = new Wall(verticalWall.ToString(), new Location(this.batleField.Rows - 1, col));
+                Wall rightVerticalWall = new Wall(verticalWall.ToString(), new Location(this.battleField.Rows - 1, col));
                 this.AddObject(leftVerticalWall);
                 this.AddObject(rightVerticalWall);
             }
@@ -63,6 +71,18 @@ namespace TheQuest
             {
                 team = obj as ThorinTeam;
             }
+            else if (obj is IEnemy)
+            {
+                this.allEnemies.Add(obj as Enemy);
+            }
+            else if (obj is Wall)
+            {
+                this.allWalls.Add(obj as Wall);
+            }
+            else if (obj is Friend)
+            {
+                this.allFriends.Add(obj as Friend);
+            }
             this.allObjects.Add(obj);
         }
 
@@ -70,23 +90,45 @@ namespace TheQuest
         {
             while (true)
             {
-                this.batleField.EnqueueForRendering(this.allObjects);
-                this.batleField.RenderAll();
+                this.battleField.EnqueueForRendering(this.allObjects);
+                this.battleField.RenderAll();
+                Console.WriteLine(this.team);
 
                 this.userInterface.ProcessInput();
-                BattleHandler battles = CollisionDispatcher.SeeForCollisionsWithEnemies(this.team, this.allObjects);
 
+                BattleHandler battles = CollisionDispatcher.SeeForCollisionsWithEnemies(this.team, this.allEnemies);
                 if (battles)
                 {
-                    Console.ReadLine();
+                    ConsoleRenderer newBattleField = new ConsoleRenderer(this.battleField.Rows, this.battleField.Cols);
+                    BattleEngine battleEngine = new BattleEngine(newBattleField, battles.Friend, battles.Enemy);
+                    battleEngine.Run();
                 }
 
+                if (CollisionDispatcher.SeeForCollisionsWithWalls(this.team, this.allWalls))
+                {
+                    this.team.MoveBack();
+                }
 
+                Friend friendToJoin = CollisionDispatcher.SeeForCollisionsWithFriends(team, this.allFriends);
+                if (friendToJoin != null)
+                {
+                    this.team.AddCompanion(friendToJoin);
+                    friendToJoin.IsAlive = false;
+                }
 
-                this.batleField.ClearQueue();
+                RemoveAllDeadObjects();
+
+                this.battleField.ClearQueue();
                 
                 Thread.Sleep(150);
             }
+        }
+
+        private void RemoveAllDeadObjects()
+        {
+            this.allObjects.RemoveAll(x => x.IsAlive == false);
+            this.allEnemies.RemoveAll(x => x.IsAlive == false);
+            this.allFriends.RemoveAll(x => x.IsAlive == false);
         }
 
         /// <summary>
