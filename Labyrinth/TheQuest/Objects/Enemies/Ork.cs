@@ -21,14 +21,6 @@ namespace TheQuest
                 return base.description;
             }
         }
-
-        public override string Symbol
-        {
-            get
-            {
-                return base.Symbol;
-            }
-        }
     }
 
 

@@ -15,15 +15,7 @@ namespace TheQuest
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-        }
-
-        public override string Symbol
-        {
-            get
-            {
-                return this.defaultSymbol;
+                return base.description;
             }
         }
 

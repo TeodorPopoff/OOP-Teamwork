@@ -5,7 +5,7 @@ namespace TheQuest
     public sealed class Tauriel : Elf, IMagician
     {
         private bool _isAlive = true;
-        private char _symbol = 'Ta';
+        private char _symbol = 'T';
         private int _presence;
         private int _spellPower;
         private static Location _position;

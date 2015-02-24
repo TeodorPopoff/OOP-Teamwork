@@ -26,5 +26,7 @@ namespace TheQuest
                 this.isAlive = value;
             }
         }
+
+
     }
 }

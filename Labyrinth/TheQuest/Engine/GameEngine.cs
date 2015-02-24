@@ -14,6 +14,7 @@ namespace TheQuest
         private ICollection<GameObject> allObjects;
         private KeyListener userInterface;
         private ConsoleRenderer batleField;
+        private ThorinTeam team;
 
         public GameEngine(KeyListener userInterface, ConsoleRenderer batleField)
         {
@@ -40,8 +41,8 @@ namespace TheQuest
             for (int row = 0; row < this.batleField.Rows; row++)
             {
                 char horizontalWall = (char)(int)Enum.Parse(typeof(WallType), WallType.Horizontal.ToString());
-                Wall leftHorizontalWall = new Wall(horizontalWall, new Location(row, 0));
-                Wall rightHorizontalWall = new Wall(horizontalWall, new Location(row, this.batleField.Cols - 1));
+                Wall leftHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, 0));
+                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, this.batleField.Cols - 1));
                 this.AddObject(leftHorizontalWall);
                 this.AddObject(rightHorizontalWall);
             }
@@ -49,8 +50,8 @@ namespace TheQuest
             for (int col = 0; col < this.batleField.Cols; col++)
             {
                 char verticalWall = (char)(int)Enum.Parse(typeof(WallType), WallType.Vertical.ToString());
-                Wall leftVerticalWall = new Wall(verticalWall, new Location(0, col));
-                Wall rightVerticalWall = new Wall(verticalWall, new Location(this.batleField.Rows - 1, col));
+                Wall leftVerticalWall = new Wall(verticalWall.ToString(), new Location(0, col));
+                Wall rightVerticalWall = new Wall(verticalWall.ToString(), new Location(this.batleField.Rows - 1, col));
                 this.AddObject(leftVerticalWall);
                 this.AddObject(rightVerticalWall);
             }
@@ -58,6 +59,10 @@ namespace TheQuest
 
         public void AddObject(GameObject obj)
         {
+            if (obj is ThorinTeam)
+            {
+                team = obj as ThorinTeam;
+            }
             this.allObjects.Add(obj);
         }
 
@@ -69,6 +74,14 @@ namespace TheQuest
                 this.batleField.RenderAll();
 
                 this.userInterface.ProcessInput();
+                BattleHandler battles = CollisionDispatcher.SeeForCollisionsWithEnemies(this.team, this.allObjects);
+
+                if (battles)
+                {
+                    Console.ReadLine();
+                }
+
+
 
                 this.batleField.ClearQueue();
                 

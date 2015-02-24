@@ -16,10 +16,5 @@
         {
             get { return base.description; }
         }
-
-        public override string Symbol
-        {
-            get { return base.symbol; }
-        }
     }
 }

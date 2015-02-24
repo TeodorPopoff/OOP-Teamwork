@@ -53,10 +53,6 @@ namespace TheQuest
             {
                 return this.symbol;
             }
-            protected set
-            {
-
-            }
         }
         /// <summary>
         /// The location of the character on the battlefield
@@ -78,6 +74,19 @@ namespace TheQuest
                 this.position.X = value.X;
                 this.position.Y = value.Y;
             }
+        }
+
+        public bool CanCollideWith(GameObject obj)
+        {
+            if (this.Position.X == obj.Position.X && this.Position.Y == obj.Position.Y)
+            {
+                if (this.GetType().Name != obj.GetType().Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

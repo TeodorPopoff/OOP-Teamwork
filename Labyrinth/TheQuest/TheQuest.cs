@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.Text;
+using System.Threading;
 
 namespace TheQuest
 {
@@ -6,10 +9,16 @@ namespace TheQuest
     {
         static void Main()
         {
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
             KeyListener keyboard = new KeyListener();
             ConsoleRenderer renderer = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);
             GameEngine engine = new GameEngine(keyboard, renderer);
-            Dwarf mainChar = new Dwarf("asd", new Location(1, 1));
+            Friend mainChar = new Dwarf("asd", new Location(2, 2));
+            Enemy enemy = new Ork("ork", new Location(3, 3));
             ThorinTeam team = new ThorinTeam();
             team.AddCompanion(mainChar);
 
@@ -20,7 +29,9 @@ namespace TheQuest
             keyboard.OnLeftPressed += (sender, eventInfo) => { team.Move(Direction.Left); };
             keyboard.OnRightPressed += (sender, eventInfo) => { team.Move(Direction.Right); };
 
-            engine.AddObject(mainChar);
+            engine.AddObject(team);
+            engine.AddObject(enemy);
+
             engine.Run();
         }
     }

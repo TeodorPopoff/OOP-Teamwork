@@ -29,14 +29,6 @@ namespace TheQuest
             }
         }
 
-        public override string Symbol
-        {
-            get
-            {
-                return base.symbol;
-            }
-        }
-
         public int Range
         {
             get

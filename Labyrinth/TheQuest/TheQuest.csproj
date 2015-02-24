@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\BattleHandler.cs" />
+    <Compile Include="Engine\CollisionDispatcher.cs" />
     <Compile Include="Enumerations\WallType.cs" />
     <Compile Include="Events\FriendDiedInBattleEventArgs.cs" />
     <Compile Include="Events\FriendDiedInBattleEventHandler.cs" />

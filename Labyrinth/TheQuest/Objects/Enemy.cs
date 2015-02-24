@@ -35,12 +35,5 @@
             }
         }
 
-        public override string Symbol
-        {
-            get
-            {
-                return base.Symbol;
-            }
-        }
     }
 }

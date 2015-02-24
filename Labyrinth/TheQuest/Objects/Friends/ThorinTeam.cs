@@ -14,24 +14,24 @@ namespace TheQuest
         private int ridingDistance = 0;
         private int flyingDistance = 0;
 
-        public event FriendJoinedTheTeamEventHandler FriendJoinedTheTeam;
-        public event FriendLeftTheTeamEventHandler FriendLeftTheTeam;
-        public event FriendDiedInBattleEventHandler FriendDiedInBattle;
+        //public event FriendJoinedTheTeamEventHandler FriendJoinedTheTeam;
+        //public event FriendLeftTheTeamEventHandler FriendLeftTheTeam;
+        //public event FriendDiedInBattleEventHandler FriendDiedInBattle;
 
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
         /// and places the team at the starting position.
         /// </summary>
         public ThorinTeam()
-            : base("Thorin's Team", new Location(0, 0))
+            : base("Thorin's Team", new Location(1, 1))
         {
-            Dwarf thorin = new Dwarf(
-                "Thorin",
-                new Location(0, 0));
+            //Dwarf thorin = new Dwarf(
+            //    "Thorin",
+            //    new Location(1, 1));
             this.companions = new List<Friend>();
-            this.companions.Add(thorin);
+            //this.companions.Add(thorin);
             base.symbol = "T";
-            base.description = "Our group of brave and loyal friends.";
+            //base.description = "Our group of brave and loyal friends.";
         }
 
         /// <summary>
@@ -94,16 +94,6 @@ namespace TheQuest
             }
         }
 
-        /// <summary>
-        /// returns a string to be used to draw the team on the battlefield.
-        /// </summary>
-        public override string Symbol
-        {
-            get
-            {
-                return base.symbol;
-            }
-        }
 
 
         /// <summary>
@@ -122,7 +112,7 @@ namespace TheQuest
             {
                 foreach (IFriend member in this.companions)
                 {
-                    member.BattleStrength *= (companion as IMagician).SpellPower;
+                    //member.BattleStrength *= (companion as IMagician).SpellPower;
                 }
             }
 
@@ -130,7 +120,7 @@ namespace TheQuest
             string message = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
                 companion.Name, this.Strength);
             FriendJoinedTheTeamEventArgs joinedEventArgs = new FriendJoinedTheTeamEventArgs(companion, message);
-            FriendJoinedTheTeam(companion, joinedEventArgs);
+            //FriendJoinedTheTeam(companion, joinedEventArgs);
         }
 
         /// <summary>
@@ -152,7 +142,7 @@ namespace TheQuest
             {
                 foreach (IFriend member in this.companions)
                 {
-                    member.BattleStrength /= (companion as IMagician).SpellPower;
+                    //member.BattleStrength /= (companion as IMagician).SpellPower;
                 }
                 //return string.Format("{0} has just left the team on some other Magicians' business. Your strength is now {1}",
                 //    companion.Name, this.Strength);
@@ -282,7 +272,7 @@ namespace TheQuest
                         string message = string.Format("{0} has juft left the team on some magician's business. Your strength has now decreased to {1}.",
                             member.Name, this.Strength);
                         FriendLeftTheTeamEventArgs leftArgs = new FriendLeftTheTeamEventArgs(member, message);
-                        this.FriendLeftTheTeam(member, leftArgs);
+                        //this.FriendLeftTheTeam(member, leftArgs);
                     }
                 }
             }
@@ -322,7 +312,7 @@ namespace TheQuest
                 string message = string.Format("{0} perished in battle with evil {1}s. Eternal glory upon his name!",
                     currentFighter.Name, enemy.GetType());
                 FriendDiedInBattleEventArgs diedArgs = new FriendDiedInBattleEventArgs(currentFighter, message);
-                FriendDiedInBattle(currentFighter, diedArgs);
+                //FriendDiedInBattle(currentFighter, diedArgs);
             }
         }
 
