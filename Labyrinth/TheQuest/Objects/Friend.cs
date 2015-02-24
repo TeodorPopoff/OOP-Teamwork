@@ -27,13 +27,6 @@
             }
         }
 
-        public override string Description
-        {
-            get
-            {
-                return base.Description;
-            }
-        }
 
     }
 }

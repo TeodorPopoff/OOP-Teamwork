@@ -42,9 +42,10 @@ namespace TheQuest
         /// <summary>
         /// A short message we can write on the console, e.g. "A powerful and evil magician"
         /// </summary>
-        public abstract string Description
+        public string Description
         {
-            get;
+            get { return this.description; }
+
         }
 
         public string Symbol

@@ -13,13 +13,5 @@ namespace TheQuest
             base.symbol = "H";
             base.description = "A small creature, not trained for combat. But good companion nonethless for it is intelligent and capable of brightenning the mood of the whole company.";
         }
-
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
     }
 }

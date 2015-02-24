@@ -21,14 +21,6 @@ namespace TheQuest
             base.description = "This hobbit is special. He has a secret - he has a ring that makes him invisible!";
         }
 
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
-
         public int Range
         {
             get

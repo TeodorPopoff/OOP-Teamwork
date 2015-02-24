@@ -13,13 +13,5 @@ namespace TheQuest
             base.symbol = "D";
             base.description = "A strong warrior, fearsome in battle. Skilled with an axe and shield.";
         }
-
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
     }
 }

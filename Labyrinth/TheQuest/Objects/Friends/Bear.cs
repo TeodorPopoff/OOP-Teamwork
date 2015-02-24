@@ -13,13 +13,5 @@ namespace TheQuest
             base.symbol = "B";
             base.description = "Strong and fearless animal. A good friend to have on your side.";
         }
-
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
     }
 }

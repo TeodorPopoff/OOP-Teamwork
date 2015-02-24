@@ -83,17 +83,6 @@ namespace TheQuest
             }
         }
 
-        /// <summary>
-        /// Returns the description of the team.
-        /// </summary>
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
-
 
 
         /// <summary>

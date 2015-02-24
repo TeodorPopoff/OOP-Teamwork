@@ -7,10 +7,5 @@
         {
             this.symbol = symbol;
         }
-
-        public override string Description
-        {
-            get { throw new System.NotImplementedException(); }
-        }
     }
 }

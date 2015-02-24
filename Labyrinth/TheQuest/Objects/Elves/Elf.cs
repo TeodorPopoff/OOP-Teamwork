@@ -8,13 +8,8 @@
             : base(name, position)
         {
             BattleStrength = battleStrength;
-            symbol = "E";
-            description = "A skilled archer, and magician very wise in battle";
-        }
-
-        public override string Description
-        {
-            get { return base.description; }
+            base.symbol = "E";
+            base.description = "A skilled archer, and magician very wise in battle";
         }
     }
 }

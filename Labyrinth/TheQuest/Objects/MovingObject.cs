@@ -11,14 +11,6 @@ namespace TheQuest
 
         }
 
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
-
         public virtual void Move(Direction direction, int step = 1)
         {
             int newRow = this.Position.Y;

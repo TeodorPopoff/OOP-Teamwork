@@ -13,14 +13,6 @@ namespace TheQuest
             base.description = "This item increases the might of our team in battle.";
         }
 
-        public override string Description
-        {
-            get
-            {
-                return base.description;
-            }
-        }
-
         public int StrengthEffect
         {
             get
