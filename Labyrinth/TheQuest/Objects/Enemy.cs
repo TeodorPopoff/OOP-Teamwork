@@ -2,7 +2,7 @@
 {
     public class Enemy : Character, IEnemy
     {
-        private int battleStrength;
+        private double battleStrength;
 
         public Enemy(string name, Location position)
             :base(name, position)
@@ -10,7 +10,7 @@
 
         }
 
-        public virtual int BattleStrength
+        public virtual double BattleStrength
         {
             get
             {

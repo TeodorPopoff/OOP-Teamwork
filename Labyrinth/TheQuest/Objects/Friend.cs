@@ -2,7 +2,7 @@
 {
     public class Friend : Character, IFriend
     {
-        private int battleStrength;
+        private double battleStrength;
 
         public Friend(string name, Location position)
             :base(name, position)
@@ -10,7 +10,7 @@
 
         }
 
-        public virtual int BattleStrength
+        public virtual double BattleStrength
         {
             get
             {

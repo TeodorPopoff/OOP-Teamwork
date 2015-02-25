@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Dwarf : Friend
     {
-        private int battleStrength = 100;
+        private double battleStrength = 100;
 
         public Dwarf(string name, Location position)
             : base(name, position)

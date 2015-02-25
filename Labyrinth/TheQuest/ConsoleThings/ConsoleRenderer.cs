@@ -34,6 +34,19 @@ namespace TheQuest
         public void EnqueueForRendering(GameObject obj)
         {
             string symbol = obj.Symbol;
+            if (obj is ThorinTeam)
+            {
+                symbol = obj.Symbol;
+            }
+            else if (obj is Enemy || obj is Friend || obj is Item)
+            {
+                symbol = obj.HiddenSymbol;
+            }
+            else
+            {
+                symbol = obj.Symbol;
+            }
+
             int row = obj.Position.Y;
             int col = obj.Position.X;
 
@@ -45,6 +58,19 @@ namespace TheQuest
             foreach (var obj in objects)
             {
                 string symbol = obj.Symbol;
+                if (obj is ThorinTeam)
+                {
+                    symbol = obj.Symbol;
+                }
+                else if (obj is Enemy || obj is Friend || obj is Item)
+                {
+                    symbol = obj.HiddenSymbol;
+                }
+                else
+                {
+                    symbol = obj.Symbol;
+                }
+
                 int row = obj.Position.Y;
                 int col = obj.Position.X;
 

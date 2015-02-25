@@ -7,7 +7,7 @@ namespace TheQuest
 {
     public class Warg : Enemy
     {
-        private int battleStrength = 140;
+        private double battleStrength = 140;
 
         public Warg(string name, Location position)
             : base(name, position)

@@ -43,6 +43,10 @@ namespace TheQuest
             {
                 return this.canRide;
             }
+            set
+            {
+                this.canRide = value;
+            }
         }
 
         /// <summary>
@@ -54,16 +58,20 @@ namespace TheQuest
             {
                 return this.canFly;
             }
+            set
+            {
+                this.canFly = value;
+            }
         }
 
         /// <summary>
         /// The total strength of the team
         /// </summary>
-        public int Strength
+        public double Strength
         {
             get
             {
-                int strength = 0;
+                double strength = 0;
                 foreach (IFriend companion in this.companions)
                 {
                     strength += companion.BattleStrength;
@@ -101,14 +109,14 @@ namespace TheQuest
             {
                 foreach (IFriend member in this.companions)
                 {
-                    //member.BattleStrength *= (companion as IMagician).SpellPower;
+                    member.BattleStrength *= (companion as IMagician).SpellPower;
                 }
             }
 
             this.companions.Add(companion);
             string message = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
                 companion.Name, this.Strength);
-            FriendJoinedTheTeamEventArgs joinedEventArgs = new FriendJoinedTheTeamEventArgs(companion, message);
+            //FriendJoinedTheTeamEventArgs joinedEventArgs = new FriendJoinedTheTeamEventArgs(companion, message);
             //FriendJoinedTheTeam(companion, joinedEventArgs);
         }
 
@@ -131,7 +139,7 @@ namespace TheQuest
             {
                 foreach (IFriend member in this.companions)
                 {
-                    //member.BattleStrength /= (companion as IMagician).SpellPower;
+                    member.BattleStrength /= (companion as IMagician).SpellPower;
                 }
                 //return string.Format("{0} has just left the team on some other Magicians' business. Your strength is now {1}",
                 //    companion.Name, this.Strength);
@@ -165,10 +173,15 @@ namespace TheQuest
                 this.canRide = true;
                 this.ridingDistance += (item as IRide).RidingEffect;
             }
-            else if (item is IFood || item is IWeapon)
+            else if (item is IFood)
             {
                 this.companions[0].BattleStrength += (item as IFood).StrengthEffect;
             }
+            else if (item is IWeapon)
+            {
+                this.companions[0].BattleStrength += (item as IWeapon).StrengthEffect;
+            }
+            item.IsAlive = false;
         }
 
         /// <summary>
@@ -245,7 +258,7 @@ namespace TheQuest
             {
                 throw new ArgumentException("Parameter enemy must implement interface IEnemy.");
             }
-            int teamStrengthAtBattleStart = this.Strength;
+            double teamStrengthAtBattleStart = this.Strength;
             if (teamStrengthAtBattleStart <= enemy.BattleStrength)
             {
                 base.IsAlive = false;
@@ -255,7 +268,7 @@ namespace TheQuest
             while (enemy.BattleStrength > 0)
             {
                 Friend currentFighter = this.companions[this.companions.Count - 1];
-                int fighterStrength = currentFighter.BattleStrength;
+                double fighterStrength = currentFighter.BattleStrength;
                 currentFighter.BattleStrength -= enemy.BattleStrength;
                 enemy.BattleStrength -= fighterStrength;
 
@@ -289,7 +302,9 @@ namespace TheQuest
             members = members.Remove(members.Length - 2, 2);
             result.Append(members);
             result.Append(" }\n");
-            result.Append(string.Format("Strength: {0}", this.Strength));
+            result.Append(string.Format("Strength: {0}\n", this.Strength));
+            result.Append(string.Format("CanFly: {0}\n", this.CanFly));
+            result.Append(string.Format("CanRide: {0}", this.CanRide));
 
             return result.ToString();
         }

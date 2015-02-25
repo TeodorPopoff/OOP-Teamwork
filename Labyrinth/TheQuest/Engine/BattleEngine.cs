@@ -55,7 +55,7 @@ namespace TheQuest
 
                 this.renderer.RenderAll();
                 Console.WriteLine(friend);
-                Console.WriteLine(enemy);
+                Console.WriteLine("Opponent: {0}", enemy);
 
                 FriendAttacks();
                 EnemyAttacks();

@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public abstract class Hobbit : Friend
     {
-        private int battleStrength = 50;
+        private double battleStrength = 50;
 
         protected Hobbit(string name, Location position)
             : base(name, position)

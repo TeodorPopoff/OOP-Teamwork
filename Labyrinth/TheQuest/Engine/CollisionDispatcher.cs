@@ -48,5 +48,18 @@ namespace TheQuest
 
             return null;
         }
+
+        public static Item SeeForCollisionWithItems(ThorinTeam team, List<Item> allItems)
+        {
+            foreach (var item in allItems)
+            {
+                if (team.CanCollideWith(item))
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
     }
 }

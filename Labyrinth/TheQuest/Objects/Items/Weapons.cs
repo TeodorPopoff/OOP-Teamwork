@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Weapons : Item, IWeapon
     {
-        private int strengthEffect = 500;
+        private double strengthEffect = 500;
 
         public Weapons(Location position)
             : base("Weapons", position)
@@ -13,7 +13,7 @@ namespace TheQuest
             base.description = "This item increases the might of our team in battle.";
         }
 
-        public int StrengthEffect
+        public double StrengthEffect
         {
             get
             {

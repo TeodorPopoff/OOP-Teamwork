@@ -2,6 +2,6 @@
 {
     public interface IEnemy
     {
-        int BattleStrength { get; set; }
+        double BattleStrength { get; set; }
     }
 }

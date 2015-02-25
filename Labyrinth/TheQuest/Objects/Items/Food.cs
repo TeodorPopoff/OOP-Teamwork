@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Food : Item, IFood
     {
-        private int strengthEffect = 300;
+        private double strengthEffect = 300;
 
         public Food(Location position)
             : base("Food", position)
@@ -14,7 +14,7 @@ namespace TheQuest
         }
 
 
-        public int StrengthEffect
+        public double StrengthEffect
         {
             get
             {

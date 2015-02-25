@@ -8,23 +8,31 @@ namespace TheQuest
     /// </summary>
     public abstract class GameObject
     {
-        private bool isAlive;
-        private string name;
-        private Location position;
         protected string symbol;
         protected string description;
+        private bool isAlive;
+        private string name;
+        private string hiddenSymbol;
+        private Location position;
 
         protected GameObject(string name, Location position)
         {
             this.Name = name;
             this.Position = position;
             this.IsAlive = true;
+            this.HiddenSymbol = "?";
         }
 
         public bool IsAlive
         {
             get { return isAlive; }
             set { isAlive = value; }
+        }
+
+        public string HiddenSymbol
+        {
+            get { return hiddenSymbol; }
+            set { hiddenSymbol = value; }
         }
 
         /// <summary>

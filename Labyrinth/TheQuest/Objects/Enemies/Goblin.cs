@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Goblin : Enemy
     {
-        private int battleStrength = 80;
+        private double battleStrength = 80;
 
         public Goblin(string name, Location position)
             : base(name, position)

@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class RingBearer : Hobbit, ISpy
     {
-        private int battleStrength = 50;
+        private double battleStrength = 50;
         //what range around us it will uncover if we use it.
         private int range = 5;
         //how many times it can do it.

@@ -2,6 +2,6 @@
 {
     public interface IFriend
     {
-        int BattleStrength { get; set; }
+        double BattleStrength { get; set; }
     }
 }

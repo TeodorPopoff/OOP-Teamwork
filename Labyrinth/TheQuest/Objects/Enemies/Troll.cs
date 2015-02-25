@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Troll : Enemy
     {
-        private int battleStrength = 200;
+        private double battleStrength = 200;
 
         public Troll(string name, Location position)
             : base(name, position)

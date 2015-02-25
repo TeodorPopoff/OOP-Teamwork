@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Ork : Enemy
     {
-        private int battleStrength = 60;
+        private double battleStrength = 60;
 
         public Ork(string name, Location position)
             : base(name, position)

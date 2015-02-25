@@ -2,6 +2,6 @@
 {
     public interface IFood
     {
-        int StrengthEffect { get; }
+        double StrengthEffect { get; }
     }
 }

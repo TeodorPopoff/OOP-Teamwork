@@ -2,7 +2,7 @@
 {
     public abstract class Elf : Friend
     {
-        private int battleStrength = 110;
+        private double battleStrength = 110;
 
         protected Elf(string name, Location position)
             : base(name, position)

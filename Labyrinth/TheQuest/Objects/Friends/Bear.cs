@@ -4,7 +4,7 @@ namespace TheQuest
 {
     public class Bear : Friend
     {
-        private int battleStrength = 200;
+        private double battleStrength = 200;
 
         public Bear(string name, Location position)
             : base(name, position)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using TheQuest.Events;
 
 namespace TheQuest
 {
@@ -29,9 +30,11 @@ namespace TheQuest
         private List<Enemy> allEnemies;
         private List<Friend> allFriends;
         private List<Wall> allWalls;
+        private List<Item> allItems;
         private KeyListener userInterface;
         private ConsoleRenderer battleField;
         private ThorinTeam team;
+        private string joinInTeamMessage = null;
 
         public GameEngine(KeyListener userInterface, ConsoleRenderer batleField)
         {
@@ -42,6 +45,7 @@ namespace TheQuest
             this.allEnemies = new List<Enemy>();
             this.allWalls = new List<Wall>();
             this.allFriends = new List<Friend>();
+            this.allItems = new List<Item>();
 
             this.DrawBorder();
         }
@@ -105,6 +109,10 @@ namespace TheQuest
             {
                 this.allFriends.Add(obj as Friend);
             }
+            else if (obj is Item)
+            {
+                this.allItems.Add(obj as Item);
+            }
             this.allObjects.Add(obj);
         }
 
@@ -115,28 +123,11 @@ namespace TheQuest
                 this.battleField.EnqueueForRendering(this.allObjects);
                 this.battleField.RenderAll();
                 Console.WriteLine(this.team);
+                Console.WriteLine(this.joinInTeamMessage);
 
                 this.userInterface.ProcessInput();
 
-                BattleHandler battles = CollisionDispatcher.SeeForCollisionsWithEnemies(this.team, this.allEnemies);
-                if (battles)
-                {
-                    ConsoleRenderer newBattleField = new ConsoleRenderer(this.battleField.Rows, this.battleField.Cols);
-                    BattleEngine battleEngine = new BattleEngine(newBattleField, battles.Friend, battles.Enemy);
-                    battleEngine.Run();
-                }
-
-                if (CollisionDispatcher.SeeForCollisionsWithWalls(this.team, this.allWalls))
-                {
-                    this.team.MoveBack();
-                }
-
-                Friend friendToJoin = CollisionDispatcher.SeeForCollisionsWithFriends(team, this.allFriends);
-                if (friendToJoin != null)
-                {
-                    this.team.AddCompanion(friendToJoin);
-                    friendToJoin.IsAlive = false;
-                }
+                CheckAllCollisions();
 
                 RemoveAllDeadObjects();
 
@@ -151,6 +142,66 @@ namespace TheQuest
             this.allObjects.RemoveAll(x => x.IsAlive == false);
             this.allEnemies.RemoveAll(x => x.IsAlive == false);
             this.allFriends.RemoveAll(x => x.IsAlive == false);
+            this.allItems.RemoveAll(x => x.IsAlive == false);
+        }
+
+        private void CheckAllCollisions()
+        {
+            BattleHandler battles = CollisionDispatcher.SeeForCollisionsWithEnemies(this.team, this.allEnemies);
+            if (battles)
+            {
+                if (this.team.CanFly)
+                {
+                    Console.WriteLine("You met {0}, do you want to fly away? Y/N", battles.Enemy.Name);
+                    string command = Console.ReadLine().ToLower();
+                    if (command == "y")
+                    {
+                        Console.Clear();
+                        this.team.MoveBack();
+                        this.team.CanFly = false;
+                        return;
+                    }
+                }
+                if (this.team.CanRide)
+                {
+                    Console.WriteLine("You met {0}, do you want to ride away? Y/N", battles.Enemy.Name);
+                    string command = Console.ReadLine().ToLower();
+                    if (command == "y")
+                    {
+                        Console.Clear();
+                        this.team.MoveBack();
+                        this.team.CanRide = false;
+                        return;
+                    }
+                }
+
+                ConsoleRenderer newBattleField = new ConsoleRenderer(this.battleField.Rows, this.battleField.Cols);
+                BattleEngine battleEngine = new BattleEngine(newBattleField, battles.Friend, battles.Enemy);
+                this.joinInTeamMessage = null;
+                battleEngine.Run();
+            }
+
+            if (CollisionDispatcher.SeeForCollisionsWithWalls(this.team, this.allWalls))
+            {
+                this.team.MoveBack();
+            }
+
+            Friend friendToJoin = CollisionDispatcher.SeeForCollisionsWithFriends(team, this.allFriends);
+            if (friendToJoin != null)
+            {
+                this.team.AddCompanion(friendToJoin);
+                this.joinInTeamMessage = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
+                    friendToJoin.Name, team.Strength);
+
+                friendToJoin.IsAlive = false;
+            }
+
+            Item itemToJoin = CollisionDispatcher.SeeForCollisionWithItems(this.team, this.allItems);
+            if (itemToJoin != null)
+            {
+                this.team.AddItem(itemToJoin);
+                itemToJoin.IsAlive = false;
+            }
         }
 
         /// <summary>
@@ -220,7 +271,7 @@ namespace TheQuest
         {
             this.AddObject(Elrond.GetInstance(GetRandomFreeLocation()));
             this.AddObject(Galadriel.GetInstance(GetRandomFreeLocation()));
-            this.AddObject(Legolas.GetInstance(GetRandomFreeLocation()));
+            //this.AddObject(Legolas.GetInstance(GetRandomFreeLocation()));
             this.AddObject(Tauriel.GetInstance(GetRandomFreeLocation()));
             this.AddObject(Thranduil.GetInstance(GetRandomFreeLocation()));
         }
@@ -374,8 +425,10 @@ namespace TheQuest
             bool isFree = false;
             while (isFree == false)
             {
+
                 x = rnd.Next(0, this.battleField.Cols);
                 y = rnd.Next(0, this.battleField.Rows);
+
                 isFree = IsLocationFree(x, y);
             }
             return new Location(x, y);
