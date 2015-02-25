@@ -374,9 +374,9 @@ namespace TheQuest
             bool isFree = false;
             while (isFree == false)
             {
-                x = rnd.Next(0, this.battleField.Rows);
-                y = rnd.Next(0, this.battleField.Cols);
-                isFree = IsLocationFree(new Location(x, y));
+                x = rnd.Next(0, this.battleField.Cols);
+                y = rnd.Next(0, this.battleField.Rows);
+                isFree = IsLocationFree(x, y);
             }
             return new Location(x, y);
         }
@@ -387,16 +387,16 @@ namespace TheQuest
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        private bool IsLocationFree(Location location)
+        private bool IsLocationFree(int x, int y)
         {
             foreach (var item in this.allObjects)
             {
-                if (item.Position.X == location.X && item.Position.Y == location.Y)
+                if (item.Position.X == x && item.Position.Y == y)
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
     }
 }
