@@ -35,7 +35,7 @@ namespace TheQuest
         }
 
         /// <summary>
-        /// Shows if th eteam can avoid battle by running away.
+        /// Shows if the team can avoid battle by running away.
         /// </summary>
         public bool CanRide
         {
@@ -46,13 +46,13 @@ namespace TheQuest
         }
 
         /// <summary>
-        /// Shows if th eteam can avoid battle by flying away.
+        /// Shows if the team can avoid battle by flying away.
         /// </summary>
         public bool CanFly
         {
             get
             {
-                return this.CanFly;
+                return this.canFly;
             }
         }
 

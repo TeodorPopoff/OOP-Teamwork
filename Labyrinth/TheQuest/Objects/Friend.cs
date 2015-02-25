@@ -26,7 +26,5 @@
                 this.battleStrength = value;
             }
         }
-
-
     }
 }

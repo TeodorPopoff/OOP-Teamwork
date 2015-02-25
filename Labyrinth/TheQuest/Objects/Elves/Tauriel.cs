@@ -2,56 +2,32 @@
 
 namespace TheQuest
 {
-    public sealed class Tauriel : Elf, IMagician
+    public sealed class Tauriel : Elf
     {
         private bool _isAlive = true;
-        private char _symbol = 'T';
-        private int _presence;
-        private int _spellPower;
         private static Location _position;
-        private static readonly Lazy<Tauriel> hero = new Lazy<Tauriel>(() => new Tauriel("Elrond", Position));
+        private static Tauriel hero;
 
-        public static Tauriel Instance { get { return hero.Value; } }
-
-        public Tauriel(string name, Location position)
-            : base(name, position)
+        public static Tauriel GetInstance(Location position)
         {
-            _presence = 20;
-            _spellPower = 200;
-        }
-
-        public bool IsAlive
-        {
-            get
+            if (Tauriel.hero == null)
             {
-                return this._isAlive;
+                Tauriel.hero = new Tauriel(position);
+                return Tauriel.hero;
+            }
+            else
+            {
+                return Tauriel.hero;
             }
         }
 
-        public static Location Position
+        private Tauriel(Location position)
+            : base("Tauriel", position)
         {
-            get { return _position; }
-            set { _position = value; }
-        }
-
-        public double SpellPower
-        {
-            get { return this._spellPower; }
-        }
-
-        public int Presence
-        {
-            get { return _presence; }
-
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Presence cannot be negative.");
-                }
-
-                _presence = value;
-            }
+            Random rnd = new Random();
+            base.symbol = "Ta";
+            base.description = "She is a captain of the Elven guard of Thranduil's woodland realm.";
+            base.BattleStrength = 150;
         }
     }
 }

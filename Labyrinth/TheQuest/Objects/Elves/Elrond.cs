@@ -5,33 +5,34 @@ namespace TheQuest
     public sealed class Elrond : Elf, IMagician
     {
         private bool _isAlive = true;
-        private char _symbol = 'E';
         private int _presence;
-        private int _spellPower;
+        private double _spellPower;
         private static Location _position;
-        private static readonly Lazy<Elrond> hero = new Lazy<Elrond>(() => new Elrond("Elrond", Position));
+        private static Elrond hero;
 
-        public static Elrond Instance { get { return hero.Value; } }
 
-        public Elrond(string name, Location position)
-            : base(name, position)
+        public static Elrond GetInstance(Location position)
         {
-            _presence = 20;
-            _spellPower = 200;
-        }
-
-        public bool IsAlive
-        {
-            get
+            if (Elrond.hero == null)
             {
-                return this._isAlive;
+                Elrond.hero = new Elrond(position);
+                return Elrond.hero;
+            }
+            else
+            {
+                return Elrond.hero;
             }
         }
 
-        public static Location Position
+        private Elrond(Location position)
+            : base("Elrond", position)
         {
-            get { return _position; }
-            set { _position = value; }
+            Random rnd = new Random();
+            _presence = rnd.Next(1, 4);
+            _spellPower = 1.3;
+            base.symbol = "El";
+            base.description = "Lord of Rivendell, and one of the mighty rulers in Middle-earth.";
+            base.BattleStrength = 230;
         }
 
         public double SpellPower

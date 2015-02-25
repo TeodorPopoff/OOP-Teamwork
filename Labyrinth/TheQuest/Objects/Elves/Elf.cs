@@ -4,12 +4,12 @@
     {
         private int battleStrength = 110;
 
-        public Elf(string name, Location position)
+        protected Elf(string name, Location position)
             : base(name, position)
         {
-            BattleStrength = battleStrength;
+            base.BattleStrength = battleStrength;
             base.symbol = "E";
-            base.description = "A skilled archer, and magician very wise in battle";
+            base.description = "The Elves are the first and oldest of the Children of Ilúvatar and are considered to be the fairest and wisest race.";
         }
     }
 }

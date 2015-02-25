@@ -4,15 +4,15 @@ namespace TheQuest
 {
     public class Radagast : Friend, IMagician
     {
-        private int battleStrength = 170;
         private int presence;
         private double spellPower = 1.15;
 
-        public Radagast(string name, Location position)
-            : base(name, position)
+        public Radagast(Location position)
+            : base("Radagast the Brown", position)
         {
             Random rnd = new Random();
             this.presence = rnd.Next(1, 8);
+            base.BattleStrength = 170;
             base.symbol = "Ra";
             base.description = "Radagast the Brown they call him. Friend of all kinds of animals and living creatures.";
         }

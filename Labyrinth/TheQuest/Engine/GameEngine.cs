@@ -11,6 +11,20 @@ namespace TheQuest
         private const int BattlefieldWidth = 1;
         private const int BattlefieldHeight = 1;
         private const int MaxNumberOfCharacters = 1;
+
+        private const int MaxNumberOfOrks = 30;
+        private const int MaxNumberOfGoblins = 25;
+        private const int MaxNumberOfTrolls = 20;
+        private const int MaxNumberOfWargs = 20;
+
+        private const int MaxNumberOfBears = 20;
+
+        private const int MaxNumberOfEagles = 20;
+        private const int MaxNumberOfHorses = 20;
+        private const int MaxNumberOfFood = 30;
+        private const int MaxNumberOfWeapons = 30;
+
+
         private List<GameObject> allObjects;
         private List<Enemy> allEnemies;
         private List<Friend> allFriends;
@@ -30,6 +44,14 @@ namespace TheQuest
             this.allFriends = new List<Friend>();
 
             this.DrawBorder();
+        }
+
+        public ThorinTeam Team
+        {
+            get
+            {
+                return this.team;
+            }
         }
 
         private bool IsFinished
@@ -149,84 +171,180 @@ namespace TheQuest
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Creates all charactres and items that will participate
+        /// int the game.
+        /// </summary>
+        public void InitAllGameObjects()
+        {
+            this.AddObject(new ThorinTeam());
+            CreateBears();
+            CreateDwarves();
+            CreateElves();
+            CreateEnemies();
+            CreateHobits();
+            CreateItems();
+            CreateMagicians();
+        }
+
         private void ExecuteCommand()
         {
             throw new System.NotImplementedException();
         }
 
-        public void DrawBattleField()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        /// <summary>
+        /// Creates the dwarves...
+        /// </summary>
         private void CreateDwarves()
         {
-            throw new System.NotImplementedException();
+            List<Dwarf> dwarves = new List<Dwarf>();
+            this.AddObject(new Dwarf(DwarfNames.Balin.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Bifur.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Bofur.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Bombur.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Dori.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Dwalin.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Fili.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Gloin.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Kili.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Nori.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Oin.ToString(), GetRandomFreeLocation()));
+            this.AddObject(new Dwarf(DwarfNames.Ori.ToString(), GetRandomFreeLocation()));
         }
 
+        /// <summary>
+        /// Creates the elves...
+        /// 
+        /// </summary>
         private void CreateElves()
         {
-            throw new System.NotImplementedException();
+            this.AddObject(Elrond.GetInstance(GetRandomFreeLocation()));
+            this.AddObject(Galadriel.GetInstance(GetRandomFreeLocation()));
+            this.AddObject(Legolas.GetInstance(GetRandomFreeLocation()));
+            this.AddObject(Tauriel.GetInstance(GetRandomFreeLocation()));
+            this.AddObject(Thranduil.GetInstance(GetRandomFreeLocation()));
         }
 
+        /// <summary>
+        /// Creates the magicians...
+        /// </summary>
         private void CreateMagicians()
         {
-            throw new System.NotImplementedException();
+            this.AddObject(new AngmarKing(GetRandomFreeLocation()));
+            this.AddObject(new Gandalf(GetRandomFreeLocation()));
+            this.AddObject(new Necromancer(GetRandomFreeLocation()));
+            this.AddObject(new Radagast(GetRandomFreeLocation()));
+            this.AddObject(new Saruman(GetRandomFreeLocation()));
         }
 
+        /// <summary>
+        /// Creates the Hobbits - only Bilbo currently.
+        /// </summary>
         private void CreateHobits()
         {
-            throw new System.NotImplementedException();
+            RingBearer bilbo = new RingBearer(GetRandomFreeLocation());
+            this.AddObject(bilbo);
         }
 
+        /// <summary>
+        /// Creates bears and puts the into the collection allObjects.
+        /// </summary>
         private void CreateBears()
         {
-            throw new System.NotImplementedException();
+            Random rnd = new Random();
+            int count = rnd.Next(0, MaxNumberOfBears + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Bear newBear = new Bear("Bear " + i, location);
+                this.AddObject(newBear);
+            }
         }
 
-        private void CreateEagles()
+        /// <summary>
+        /// Creates the four types of items and adds
+        /// them to the engine.
+        /// </summary>
+        private void CreateItems()
         {
-            throw new System.NotImplementedException();
+            Random rnd = new Random();
+
+            //Create eagles:
+            int count = rnd.Next(0, MaxNumberOfEagles + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Eagles newEagles = new Eagles(location);
+                this.AddObject(newEagles);
+            }
+
+            //Create horses:
+            count = rnd.Next(0, MaxNumberOfHorses + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Horses horses = new Horses(location);
+                this.AddObject(horses);
+            }
+
+            //Create weapons:
+            count = rnd.Next(0, MaxNumberOfWeapons + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Weapons weapons = new Weapons(location);
+                this.AddObject(weapons);
+            }
+
+            //Create food:
+            count = rnd.Next(0, MaxNumberOfFood + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Food food = new Food(location);
+                this.AddObject(food);
+            }
         }
 
-        private void CreateGoblins()
+        private void CreateEnemies()
         {
-            throw new System.NotImplementedException();
-        }
+            Random rnd = new Random();
 
-        private void CreateOrks()
-        {
-            throw new System.NotImplementedException();
-        }
+            //Create orcs:
+            int count = rnd.Next(0, MaxNumberOfOrks + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Ork ork = new Ork("Ork " + i, location);
+                this.AddObject(ork);
+            }
 
-        private void CreateTrolls()
-        {
-            throw new System.NotImplementedException();
-        }
+            //Create goblins:
+            count = rnd.Next(0, MaxNumberOfGoblins + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Goblin goblin = new Goblin("Goblin " + i, location);
+                this.AddObject(goblin);
+            }
 
-        private void CreateWargs()
-        {
-            throw new System.NotImplementedException();
-        }
+            //Create trolls:
+            count = rnd.Next(0, MaxNumberOfTrolls + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Troll troll = new Troll("Troll " + i, location);
+                this.AddObject(troll);
+            }
 
-        private void CreateFood()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void CreateWatter()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void CreateWeapons()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void GetRandomFreeLocation()
-        {
-            throw new System.NotImplementedException();
+            //Create wargs:
+            count = rnd.Next(0, MaxNumberOfWargs + 1);
+            for (int i = 0; i < count; i++)
+            {
+                Location location = GetRandomFreeLocation();
+                Warg warg = new Warg("Warg " + i, location);
+                this.AddObject(warg);
+            }
         }
 
         /// <summary>
@@ -234,7 +352,7 @@ namespace TheQuest
         /// </summary>
         public void PrintTeamInfo()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine(this.team.ToString());
         }
 
         /// <summary>
@@ -245,9 +363,40 @@ namespace TheQuest
             throw new System.NotImplementedException();
         }
 
-        private void ProcessMove()
+        /// <summary>
+        /// Gets a position on the battlefield that is currently not taken by any character.
+        /// </summary>
+        private Location GetRandomFreeLocation()
         {
-            throw new System.NotImplementedException();
+            int x = 0;
+            int y = 0;
+            Random rnd = new Random();
+            bool isFree = false;
+            while (isFree == false)
+            {
+                x = rnd.Next(0, this.battleField.Rows);
+                y = rnd.Next(0, this.battleField.Cols);
+                isFree = IsLocationFree(new Location(x, y));
+            }
+            return new Location(x, y);
+        }
+
+        /// <summary>
+        /// Checks if a given location on the battlefiled is
+        /// taken by another object.
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        private bool IsLocationFree(Location location)
+        {
+            foreach (var item in this.allObjects)
+            {
+                if (item.Position.X == location.X && item.Position.Y == location.Y)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -4,15 +4,15 @@ namespace TheQuest
 {
     public class Saruman : Friend, IMagician
     {
-        private int battleStrength = 250;
         private int presence;
         private double spellPower = 1.4;
 
-        public Saruman(string name, Location position)
-            : base(name, position)
+        public Saruman(Location position)
+            : base("Saruman the White", position)
         {
             Random rnd = new Random();
             this.presence = rnd.Next(1, 4);
+            base.BattleStrength = 230;
             base.symbol = "S";
             base.description = "Saruman the White they call him. Powerful wizzard with a power over the minds of others.";
         }

@@ -4,15 +4,15 @@ namespace TheQuest
 {
     public class Necromancer : Enemy, IMagician
     {
-        private int battleStrength = 200;
         private int presence;
         private double spellPower = 0.7;
 
-        public Necromancer(string name, Location position)
-            : base(name, position)
+        public Necromancer(Location position)
+            : base("The Necromancer", position)
         {
             Random rnd = new Random();
             this.presence = rnd.Next(1, 4);
+            base.BattleStrength = 250;
             base.symbol = "N";
             base.description = "The evil master of Dol Goldur. ";
         }

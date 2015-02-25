@@ -2,56 +2,32 @@
 
 namespace TheQuest
 {
-    public sealed class Thrandull : Elf, IMagician
+    public sealed class Thranduil : Elf
     {
         private bool _isAlive = true;
-        private char _symbol = 'H';
-        private int _presence;
-        private int _spellPower;
         private static Location _position;
-        private static readonly Lazy<Thrandull> hero = new Lazy<Thrandull>(() => new Thrandull("Elrond", Position));
+        private static Thranduil hero;
 
-        public static Thrandull Instance { get { return hero.Value; } }
-
-        public Thrandull(string name, Location position)
-            : base(name, position)
+        public static Thranduil GetInstance(Location position)
         {
-            _presence = 20;
-            _spellPower = 200;
-        }
-
-        public bool IsAlive
-        {
-            get
+            if (Thranduil.hero == null)
             {
-                return this._isAlive;
+                Thranduil.hero = new Thranduil(position);
+                return Thranduil.hero;
+            }
+            else
+            {
+                return Thranduil.hero;
             }
         }
 
-        public static Location Position
+        private Thranduil(Location position)
+            : base("Thranduil", position)
         {
-            get { return _position; }
-            set { _position = value; }
-        }
-
-        public double SpellPower
-        {
-            get { return this._spellPower; }
-        }
-
-        public int Presence
-        {
-            get { return _presence; }
-
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Presence cannot be negative.");
-                }
-
-                _presence = value;
-            }
+            Random rnd = new Random();
+            base.symbol = "Th";
+            base.description = "The elven King of Mirkwood.";
+            base.BattleStrength = 200;
         }
     }
 }
