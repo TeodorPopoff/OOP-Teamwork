@@ -33,6 +33,8 @@ namespace TheQuest
             this.friend.Position = new Location(attackerNewCoords.Y, attackerNewCoords.X);
             this.enemy.Position = new Location(defenderNewCoords.Y, defenderNewCoords.X);
 
+            this.enemy.HiddenSymbol = this.enemy.Name;
+
             this.allCreatures.Add(this.friend);
             this.allCreatures.Add(this.enemy);
         }
@@ -54,8 +56,8 @@ namespace TheQuest
                 }
 
                 this.renderer.RenderAll();
+                Console.WriteLine("Enter command \"attack\" to attack");
                 Console.WriteLine(friend);
-                Console.WriteLine("Opponent: {0}", enemy);
 
                 FriendAttacks();
                 EnemyAttacks();
