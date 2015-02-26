@@ -200,6 +200,8 @@ namespace TheQuest
             if (itemToJoin != null)
             {
                 this.team.AddItem(itemToJoin);
+                this.joinInTeamMessage = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
+                    itemToJoin.Name, team.Strength);
                 itemToJoin.IsAlive = false;
             }
         }
