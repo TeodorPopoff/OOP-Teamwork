@@ -10,7 +10,7 @@ namespace TheQuest
             : base(name, position)
         {
             base.BattleStrength = this.battleStrength;
-            base.symbol = "B";
+            base.symbol = "F";
             base.description = "Strong and fearless animal. A good friend to have on your side.";
         }
     }

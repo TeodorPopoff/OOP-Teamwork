@@ -9,7 +9,7 @@ namespace TheQuest
         public Horses(Location position)
             : base("Horses", position)
         {
-            base.symbol = "Ho";
+            base.symbol = "I";
             base.description = "This item gives the team a prescious ability - to ride away from its enemies.";
         }
 

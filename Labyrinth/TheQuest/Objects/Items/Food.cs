@@ -9,7 +9,7 @@ namespace TheQuest
         public Food(Location position)
             : base("Food", position)
         {
-            base.symbol = "Fo";
+            base.symbol = "I";
             base.description = "This item increases the strength of our team.";
         }
 

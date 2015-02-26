@@ -9,7 +9,7 @@ namespace TheQuest
         public Eagles(Location position)
             : base("Eagles", position)
         {
-            base.symbol = "Ea";
+            base.symbol = "I";
             base.description = "This item gives the team a prescious ability - to fly away from its enemies.";
         }
 

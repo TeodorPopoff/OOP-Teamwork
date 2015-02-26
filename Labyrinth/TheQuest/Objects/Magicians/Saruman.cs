@@ -13,7 +13,7 @@ namespace TheQuest
             Random rnd = new Random();
             this.presence = rnd.Next(1, 4);
             base.BattleStrength = 230;
-            base.symbol = "S";
+            base.symbol = "M";
             base.description = "Saruman the White they call him. Powerful wizzard with a power over the minds of others.";
         }
 

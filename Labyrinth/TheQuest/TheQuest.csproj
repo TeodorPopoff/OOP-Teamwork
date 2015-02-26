@@ -55,6 +55,7 @@
     <Compile Include="Objects\Elves\Elrond.cs" />
     <Compile Include="Objects\Elves\Elf.cs" />
     <Compile Include="Objects\Elves\Galadriel.cs" />
+    <Compile Include="Objects\Elves\Legolas.cs" />
     <Compile Include="Objects\Elves\Tauriel.cs" />
     <Compile Include="Objects\Elves\Thranduil.cs" />
     <Compile Include="Objects\Enemies\Goblin.cs" />

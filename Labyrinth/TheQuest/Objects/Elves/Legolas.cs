@@ -25,7 +25,7 @@ namespace TheQuest
             : base("Legolas", position)
         {
             Random rnd = new Random();
-            base.symbol = "Le";
+            base.symbol = "L";
             base.description = "He is the son of the Elf-king Thranduil of Mirkwood, a Prince of the Woodland Realm (Mirkwood), a messenger, and a master bowman.";
             base.BattleStrength = 170;
         }

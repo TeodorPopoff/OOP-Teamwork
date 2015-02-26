@@ -30,7 +30,7 @@ namespace TheQuest
             Random rnd = new Random();
             _presence = rnd.Next(1, 4);
             _spellPower = 1.3;
-            base.symbol = "El";
+            base.symbol = "E";
             base.description = "Lord of Rivendell, and one of the mighty rulers in Middle-earth.";
             base.BattleStrength = 230;
         }

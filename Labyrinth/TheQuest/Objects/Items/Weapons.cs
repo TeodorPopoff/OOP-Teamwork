@@ -9,7 +9,7 @@ namespace TheQuest
         public Weapons(Location position)
             : base("Weapons", position)
         {
-            base.symbol = "We";
+            base.symbol = "I";
             base.description = "This item increases the might of our team in battle.";
         }
 

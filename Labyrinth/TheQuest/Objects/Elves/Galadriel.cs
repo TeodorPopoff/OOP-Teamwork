@@ -29,7 +29,7 @@ namespace TheQuest
             Random rnd = new Random();
             _presence = rnd.Next(1, 5);
             _spellPower = 1.4;
-            base.symbol = "Ga";
+            base.symbol = "E";
             base.description = "She is one of the greatest of the Eldar, surpassing nearly all others in beauty, knowledge, and power.";
             base.BattleStrength = 270;
         }

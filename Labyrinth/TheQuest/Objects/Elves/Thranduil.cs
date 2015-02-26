@@ -25,7 +25,7 @@ namespace TheQuest
             : base("Thranduil", position)
         {
             Random rnd = new Random();
-            base.symbol = "Th";
+            base.symbol = "E";
             base.description = "The elven King of Mirkwood.";
             base.BattleStrength = 200;
         }

@@ -14,7 +14,7 @@ namespace TheQuest
             Random rnd = new Random();
             this.presence = rnd.Next(1, 4);
             base.BattleStrength = 200;
-            base.symbol = "A";
+            base.symbol = "M";
             base.description = "The witch king of Angmar is the leader of the Nazgul. Legend says that no man can kill him...";
         }
 

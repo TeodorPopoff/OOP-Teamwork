@@ -13,7 +13,7 @@ namespace TheQuest
             Random rnd = new Random();
             this.presence = rnd.Next(1, 8);
             base.BattleStrength = 170;
-            base.symbol = "Ra";
+            base.symbol = "M";
             base.description = "Radagast the Brown they call him. Friend of all kinds of animals and living creatures.";
         }
 

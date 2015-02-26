@@ -25,7 +25,7 @@ namespace TheQuest
             : base("Tauriel", position)
         {
             Random rnd = new Random();
-            base.symbol = "Ta";
+            base.symbol = "E";
             base.description = "She is a captain of the Elven guard of Thranduil's woodland realm.";
             base.BattleStrength = 150;
         }
