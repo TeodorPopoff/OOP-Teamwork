@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
+using TheQuest.Events;
 
 namespace TheQuest
 {
@@ -16,6 +16,7 @@ namespace TheQuest
         {
             this.renderer = renderer;
             this.friend = friend;
+            (this.friend as ThorinTeam).FriendDiedInBattle += this.FriendDied;
             this.enemy = enemy;
             this.allCreatures = new List<Character>();
         }
@@ -58,6 +59,7 @@ namespace TheQuest
                 this.renderer.RenderAll();
                 Console.WriteLine("Enter command \"attack\" to attack");
                 Console.WriteLine(friend);
+                Console.WriteLine("You met {0}.", enemy.Name);
 
                 FriendAttacks();
                 EnemyAttacks();
@@ -126,6 +128,11 @@ namespace TheQuest
         {
             Console.SetCursorPosition(0, Console.CursorTop - 1);
             Console.Write("\r" + new string(' ', ConsoleSettings.ConsoleWidth));
+        }
+
+        private void FriendDied(Friend aFriend, FriendDiedInBattleEventArgs eventArgs)
+        {
+            Console.WriteLine(eventArgs.Message);
         }
     }
 }

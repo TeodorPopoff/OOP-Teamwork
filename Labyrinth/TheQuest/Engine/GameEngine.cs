@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using TheQuest.Events;
 
 namespace TheQuest
 {
@@ -21,7 +22,6 @@ namespace TheQuest
         private const int MaxNumberOfHorses = 20;
         private const int MaxNumberOfFood = 30;
         private const int MaxNumberOfWeapons = 30;
-
 
         private List<GameObject> allObjects;
         private List<Enemy> allEnemies;
@@ -56,27 +56,15 @@ namespace TheQuest
             }
         }
 
-        private bool IsFinished
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
         private void DrawBorder()
         {
             for (int row = 0; row < this.battleField.Rows; row++)
             {
-                char horizontalWall = (char)(int)Enum.Parse(typeof(WallType), 
+                char horizontalWall = (char)(int)Enum.Parse(typeof(WallType),
                     WallType.Horizontal.ToString());
-                Wall leftHorizontalWall = new Wall(horizontalWall.ToString(), 
+                Wall leftHorizontalWall = new Wall(horizontalWall.ToString(),
                     new Location(row, 0));
-                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(), 
+                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(),
                     new Location(row, this.battleField.Cols - 1));
                 this.AddObject(leftHorizontalWall);
                 this.AddObject(rightHorizontalWall);
@@ -129,6 +117,9 @@ namespace TheQuest
                 this.battleField.RenderAll();
                 Console.WriteLine(this.team);
                 Console.WriteLine(this.joinInTeamMessage);
+                Console.WriteLine();
+                Console.WriteLine("Use the arrow keys to move the team around the battlefield.");
+                Console.WriteLine("Your goal is to reach the treasure waitting for you in the Lonely Mountain.");
 
                 this.userInterface.ProcessInput();
 
@@ -137,7 +128,7 @@ namespace TheQuest
                 RemoveAllDeadObjects();
 
                 this.battleField.ClearQueue();
-                
+
                 Thread.Sleep(150);
             }
         }
@@ -162,7 +153,8 @@ namespace TheQuest
                     if (command == "y")
                     {
                         Console.Clear();
-                        this.team.MoveBack();
+                        Location locationArrival = GetFreeLocationAtDistance(this.team.Position, this.Team.FlyAway());
+                        this.Team.Position = locationArrival;
                         this.team.CanFly = false;
                         return;
                     }
@@ -174,11 +166,14 @@ namespace TheQuest
                     if (command == "y")
                     {
                         Console.Clear();
-                        this.team.MoveBack();
+                        Location locationArrival = GetFreeLocationAtDistance(this.team.Position, this.Team.RideAway());
+                        this.Team.Position = locationArrival;
                         this.team.CanRide = false;
                         return;
                     }
                 }
+
+                Console.WriteLine("You met {0}", battles.Enemy.Name);
 
                 ConsoleRenderer newBattleField = new ConsoleRenderer(this.battleField.Rows, this.battleField.Cols);
                 BattleEngine battleEngine = new BattleEngine(newBattleField, battles.Friend, battles.Enemy);
@@ -195,8 +190,8 @@ namespace TheQuest
             if (friendToJoin != null)
             {
                 this.team.AddCompanion(friendToJoin);
-                this.joinInTeamMessage = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
-                    friendToJoin.Name, team.Strength);
+                //this.joinInTeamMessage = string.Format("{0} just joined the team. The team's strength is now {1:0.00}.",
+                    //friendToJoin.Name, team.Strength);
 
                 friendToJoin.IsAlive = false;
             }
@@ -205,8 +200,25 @@ namespace TheQuest
             if (itemToJoin != null)
             {
                 this.team.AddItem(itemToJoin);
-                this.joinInTeamMessage = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
-                    itemToJoin.Name, team.Strength);
+                if (itemToJoin is Horses)
+                {
+                    this.joinInTeamMessage = "Riding ability was added to the team.";
+                }
+                else if (itemToJoin is Eagles)
+                {
+                    this.joinInTeamMessage = "Flying ability was added to the team.";
+                }
+                else if (itemToJoin is Food)
+                {
+                    this.joinInTeamMessage = string.Format("The team found some food. After having a nice lunch, its strength is now {0:0.00}.",
+                    team.Strength);
+                }
+                else
+                {
+                    this.joinInTeamMessage = string.Format("The team found some weapons. After filling the arsenal, its strength is now {0:0.00}.",
+                    team.Strength);
+                }
+
                 itemToJoin.IsAlive = false;
             }
 
@@ -248,7 +260,7 @@ namespace TheQuest
                     this.allFriends = new List<Friend>();
                     this.allItems = new List<Item>();
                     this.battleField = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);
-                    
+
                     this.InitAllGameObjects();
                 }
                 else
@@ -265,6 +277,9 @@ namespace TheQuest
         public void InitAllGameObjects()
         {
             this.AddObject(new ThorinTeam());
+            this.Team.FriendJoinedTheTeam += this.FriendJoined;
+            this.Team.FriendLeftTheTeam += this.FriendLeft;
+            this.Team.FriendDiedInBattle += this.FriendDied;
             this.DrawBorder();
             CreateTreasure();
             CreateBears();
@@ -276,20 +291,12 @@ namespace TheQuest
             CreateMagicians();
         }
 
-<<<<<<< HEAD
-=======
         private void CreateTreasure()
         {
             this.treasure = new Treasure("Treasure", new Location(ConsoleSettings.ConsoleWidth - 2, ConsoleSettings.ConsoleHeight - 2));
             this.AddObject(treasure);
         }
 
-        private void ExecuteCommand()
-        {
-            throw new System.NotImplementedException();
-        }
-
->>>>>>> origin/master
         /// <summary>
         /// Creates the dwarves...
         /// </summary>
@@ -456,7 +463,6 @@ namespace TheQuest
             bool isFree = false;
             while (isFree == false)
             {
-
                 x = rnd.Next(0, this.battleField.Cols);
                 y = rnd.Next(0, this.battleField.Rows);
 
@@ -481,6 +487,40 @@ namespace TheQuest
                 }
             }
             return true;
+        }
+
+        private int CalculateDistance(Location location1, Location location2)
+        {
+            int distanceX = location1.X - location2.X;
+            int distanceY = location1.Y - location2.Y;
+            int distance = distanceX > distanceY ? distanceX : distanceY;
+
+            return distance;
+        }
+
+        private Location GetFreeLocationAtDistance(Location currentLocation, int distance)
+        {
+            Location location = GetRandomFreeLocation();
+            while (CalculateDistance(currentLocation, location) < distance)
+            {
+                location = GetRandomFreeLocation();
+            }
+            return location;
+        }
+
+        private void FriendJoined(Friend aFriend, FriendJoinedTheTeamEventArgs eventArgs)
+        {
+            this.joinInTeamMessage += "\n" + eventArgs.Message;
+        }
+
+        private void FriendLeft(Friend aFriend, FriendLeftTheTeamEventArgs eventArgs)
+        {
+            this.joinInTeamMessage += "\n" + eventArgs.Message;
+        }
+
+        private void FriendDied(Friend aFriend, FriendDiedInBattleEventArgs eventArgs)
+        {
+            this.joinInTeamMessage += "\n" + eventArgs.Message;
         }
     }
 }

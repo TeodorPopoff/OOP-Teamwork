@@ -14,9 +14,9 @@ namespace TheQuest
         private int ridingDistance = 0;
         private int flyingDistance = 0;
 
-        //public event FriendJoinedTheTeamEventHandler FriendJoinedTheTeam;
-        //public event FriendLeftTheTeamEventHandler FriendLeftTheTeam;
-        //public event FriendDiedInBattleEventHandler FriendDiedInBattle;
+        public event FriendJoinedTheTeamEventHandler FriendJoinedTheTeam;
+        public event FriendLeftTheTeamEventHandler FriendLeftTheTeam;
+        public event FriendDiedInBattleEventHandler FriendDiedInBattle;
 
         /// <summary>
         /// Constructs the team by creating its leader - Thorin, adds it to the companions collection,
@@ -100,11 +100,6 @@ namespace TheQuest
         /// <returns>Fires event each time a companion is added.</returns>
         public void AddCompanion(Friend companion)
         {
-            if (!(companion is IFriend))
-            {
-                throw new InvalidOperationException("You can only add characters that implement IFriend to Thorin's team.");
-            }
-
             if (companion is IMagician)
             {
                 foreach (IFriend member in this.companions)
@@ -114,15 +109,15 @@ namespace TheQuest
             }
 
             this.companions.Add(companion);
-            string message = string.Format("{0} just joined the team. Your strength has now increased to {1}.",
+            string message = string.Format("{0} just joined the team. Your strength has now increased to {1:0.00}.",
                 companion.Name, this.Strength);
-            //FriendJoinedTheTeamEventArgs joinedEventArgs = new FriendJoinedTheTeamEventArgs(companion, message);
-            //FriendJoinedTheTeam(companion, joinedEventArgs);
+            FriendJoinedTheTeamEventArgs joinedEventArgs = new FriendJoinedTheTeamEventArgs(companion, message);
+            FriendJoinedTheTeam(companion, joinedEventArgs);
         }
 
         /// <summary>
         /// Removes a member from the team.
-        /// If the member is a Magigician, also removes the Spell effect on the team's strength.
+        /// If the member is a Magician, also removes the Spell effect on the team's strength.
         /// </summary>
         /// <param name="companion">The Character to remove.</param>
         /// <returns>Void</returns>
@@ -141,20 +136,12 @@ namespace TheQuest
                 {
                     member.BattleStrength /= (companion as IMagician).SpellPower;
                 }
-                //return string.Format("{0} has just left the team on some other Magicians' business. Your strength is now {1}",
-                //    companion.Name, this.Strength);
             }
 
             if (this.companions.Count == 0)
             {
                 base.IsAlive = false;
             }
-            //else
-            //{
-            //    return string.Format("{0} was lost in battle... Eternal glory on his name forevermore!",
-            //        companion.Name);
-            //}
-
         }
 
         /// <summary>
@@ -189,15 +176,15 @@ namespace TheQuest
         /// determined by its ridingDistance and supplied parameter direction.
         /// </summary>
         /// <param name="direction">The direction to move to.</param>
-        public void RideAway(Direction direction)
+        public int RideAway()
         {
             if (this.canRide == false)
             {
                 throw new InvalidOperationException("The team doesn't have riding ability.");
             }
-            Move(direction, this.ridingDistance);
-            this.canRide = false;
+            int result = this.ridingDistance;
             this.ridingDistance = 0;
+            return result;
         }
 
         /// <summary>
@@ -205,15 +192,15 @@ namespace TheQuest
         /// determined by its ridingDistance and supplied parameter direction.
         /// </summary>
         /// <param name="direction">The direction to move to.</param>
-        public void FlyAway(Direction direction)
+        public int FlyAway()
         {
             if (this.canFly == false)
             {
                 throw new InvalidOperationException("The team doesn't have flying ability.");
             }
-            Move(direction, this.flyingDistance);
-            this.canFly = false;
+            int result = this.flyingDistance;
             this.flyingDistance = 0;
+            return result;
         }
 
         /// <summary>
@@ -223,27 +210,36 @@ namespace TheQuest
         /// <param name="step">What distance to move.</param>
         public override void Move(Direction direction, int step = 1)
         {
-            base.Move(direction);
-            int newRow = this.Position.Y;
-            int newCol = this.Position.X;
-
-            this.Position = new Location(newCol, newRow);
-
+            //Decrease the presence of all magicians:
             foreach (Friend member in this.companions)
             {
                 if (member is IMagician)
                 {
                     (member as IMagician).Presence--;
-                    if ((member as IMagician).Presence == 0)
+                }
+            }
+
+            //Remove the magicians that have no presence left:
+            for (int i = 0; i < this.companions.Count; i++)
+            {
+                if (this.companions[i] is IMagician)
+                {
+                    if ((this.companions[i] as IMagician).Presence == 0)
                     {
-                        RemoveCompanion(member);
-                        string message = string.Format("{0} has juft left the team on some magician's business. Your strength has now decreased to {1}.",
-                            member.Name, this.Strength);
-                        FriendLeftTheTeamEventArgs leftArgs = new FriendLeftTheTeamEventArgs(member, message);
-                        //this.FriendLeftTheTeam(member, leftArgs);
+                        string message = string.Format("{0} has just left the team on some magician's business. Your strength has now decreased to {1:0.00}.",
+                            this.companions[i].Name, this.Strength);
+                        FriendLeftTheTeamEventArgs leftArgs = new FriendLeftTheTeamEventArgs(this.companions[i], message);
+                        this.FriendLeftTheTeam(this.companions[i], leftArgs);
+                        RemoveCompanion(this.companions[i]);
                     }
                 }
             }
+            
+            //Move the whole team:
+            base.Move(direction);
+            int newRow = this.Position.Y;
+            int newCol = this.Position.X;
+            this.Position = new Location(newCol, newRow);
         }
 
         /// <summary>
@@ -302,9 +298,9 @@ namespace TheQuest
             members = members.Remove(members.Length - 2, 2);
             result.Append(members);
             result.Append(" }\n");
-            result.Append(string.Format("Strength: {0}\n", this.Strength));
+            result.Append(string.Format("Strength: {0:0.00}\n", this.Strength));
             result.Append(string.Format("CanFly: {0}\n", this.CanFly));
-            result.Append(string.Format("CanRide: {0}", this.CanRide));
+            result.Append(string.Format("CanRide: {0}\n", this.CanRide));
 
             return result.ToString();
         }

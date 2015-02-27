@@ -79,6 +79,7 @@ namespace TheQuest
 
         public void RenderAll()
         {
+            Console.Clear();
             Console.SetCursorPosition(0, 0);
             StringBuilder output = new StringBuilder();
 
@@ -104,6 +105,11 @@ namespace TheQuest
                     this.world[row, col] = " ";
                 }
             }
+        }
+
+        private void ClearScreen()
+        {
+
         }
     }
 }

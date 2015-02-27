@@ -6,7 +6,5 @@ TODO
 - Update class diagram
 
 - Develop info messages to show on every move
-- Develop the events handling routine of joinning and leaving the team
 
-- Fix bug when Magician leaves the team
 - Fix bug - not allowed to fight with Magicians
