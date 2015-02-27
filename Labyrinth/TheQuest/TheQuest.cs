@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Text;
 using System.Threading;
 
 namespace TheQuest
@@ -17,11 +16,6 @@ namespace TheQuest
             ConsoleRenderer renderer = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);
             GameEngine engine = new GameEngine(keyboard, renderer);
             engine.InitAllGameObjects();
-            //Friend mainChar = new Dwarf("asd", new Location(2, 2));
-            //Enemy enemy = new Ork("ork", new Location(3, 3));
-            //ThorinTeam team = new ThorinTeam();
-            //Elrond elrond = new Elrond("elrond", new Location(10, 10));
-            //team.AddCompanion(mainChar);
 
             Console.BufferHeight = Console.WindowHeight; // Remove the scrollbar
 
@@ -29,10 +23,6 @@ namespace TheQuest
             keyboard.OnUpPressed += (sender, eventInfo) => { engine.Team.Move(Direction.Up); };
             keyboard.OnLeftPressed += (sender, eventInfo) => { engine.Team.Move(Direction.Left); };
             keyboard.OnRightPressed += (sender, eventInfo) => { engine.Team.Move(Direction.Right); };
-
-            //engine.AddObject(elrond);
-            //engine.AddObject(team);
-            //engine.AddObject(enemy);
 
             engine.Run();
         }

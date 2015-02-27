@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using TheQuest.Events;
 
 namespace TheQuest
 {
@@ -74,9 +71,12 @@ namespace TheQuest
         {
             for (int row = 0; row < this.battleField.Rows; row++)
             {
-                char horizontalWall = (char)(int)Enum.Parse(typeof(WallType), WallType.Horizontal.ToString());
-                Wall leftHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, 0));
-                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(), new Location(row, this.battleField.Cols - 1));
+                char horizontalWall = (char)(int)Enum.Parse(typeof(WallType), 
+                    WallType.Horizontal.ToString());
+                Wall leftHorizontalWall = new Wall(horizontalWall.ToString(), 
+                    new Location(row, 0));
+                Wall rightHorizontalWall = new Wall(horizontalWall.ToString(), 
+                    new Location(row, this.battleField.Cols - 1));
                 this.AddObject(leftHorizontalWall);
                 this.AddObject(rightHorizontalWall);
             }
@@ -207,24 +207,6 @@ namespace TheQuest
         }
 
         /// <summary>
-        /// Displays the title of the game
-        /// </summary>
-        public void DisplayGameTitle()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void DisplayGameRules()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void DisplayGameCommands()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
         /// Creates all charactres and items that will participate
         /// int the game.
         /// </summary>
@@ -238,11 +220,6 @@ namespace TheQuest
             CreateHobits();
             CreateItems();
             CreateMagicians();
-        }
-
-        private void ExecuteCommand()
-        {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -273,7 +250,7 @@ namespace TheQuest
         {
             this.AddObject(Elrond.GetInstance(GetRandomFreeLocation()));
             this.AddObject(Galadriel.GetInstance(GetRandomFreeLocation()));
-            //this.AddObject(Legolas.GetInstance(GetRandomFreeLocation()));
+            this.AddObject(Legolas.GetInstance(GetRandomFreeLocation()));
             this.AddObject(Tauriel.GetInstance(GetRandomFreeLocation()));
             this.AddObject(Thranduil.GetInstance(GetRandomFreeLocation()));
         }
@@ -309,7 +286,7 @@ namespace TheQuest
             for (int i = 0; i < count; i++)
             {
                 Location location = GetRandomFreeLocation();
-                Bear newBear = new Bear("Bear " + i, location);
+                Bear newBear = new Bear("Bear", location);
                 this.AddObject(newBear);
             }
         }
@@ -368,7 +345,7 @@ namespace TheQuest
             for (int i = 0; i < count; i++)
             {
                 Location location = GetRandomFreeLocation();
-                Ork ork = new Ork("Ork " + i, location);
+                Ork ork = new Ork("a band of vicious orcs", location);
                 this.AddObject(ork);
             }
 
@@ -377,7 +354,7 @@ namespace TheQuest
             for (int i = 0; i < count; i++)
             {
                 Location location = GetRandomFreeLocation();
-                Goblin goblin = new Goblin("Goblin " + i, location);
+                Goblin goblin = new Goblin("a group of nasty goblins", location);
                 this.AddObject(goblin);
             }
 
@@ -386,7 +363,7 @@ namespace TheQuest
             for (int i = 0; i < count; i++)
             {
                 Location location = GetRandomFreeLocation();
-                Troll troll = new Troll("Troll " + i, location);
+                Troll troll = new Troll("three hungry trolls", location);
                 this.AddObject(troll);
             }
 
@@ -395,25 +372,9 @@ namespace TheQuest
             for (int i = 0; i < count; i++)
             {
                 Location location = GetRandomFreeLocation();
-                Warg warg = new Warg("Warg " + i, location);
+                Warg warg = new Warg("a crew of warg riders", location);
                 this.AddObject(warg);
             }
-        }
-
-        /// <summary>
-        /// Prints on screen the size of the team, the member names, their total strength, their range for running
-        /// </summary>
-        public void PrintTeamInfo()
-        {
-            Console.WriteLine(this.team.ToString());
-        }
-
-        /// <summary>
-        /// Prints messages about what forces are located nearby - 3 bloks in all directions
-        /// </summary>
-        public void PrintAllocationOfCharacters()
-        {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -27,8 +25,10 @@ namespace TheQuest
         /// </summary>
         public void InitializeBattle()
         {
-            Location attackerNewCoords = new Location(ConsoleSettings.ConsoleHeight / 2, ConsoleSettings.ConsoleWidth / 2 - (ConsoleSettings.ConsoleWidth / 4));
-            Location defenderNewCoords = new Location(ConsoleSettings.ConsoleHeight / 2, ConsoleSettings.ConsoleWidth / 2 + (ConsoleSettings.ConsoleWidth / 4));
+            Location attackerNewCoords = new Location(ConsoleSettings.ConsoleHeight / 2, 
+                ConsoleSettings.ConsoleWidth / 2 - (ConsoleSettings.ConsoleWidth / 4));
+            Location defenderNewCoords = new Location(ConsoleSettings.ConsoleHeight / 2, 
+                ConsoleSettings.ConsoleWidth / 2 + (ConsoleSettings.ConsoleWidth / 4));
 
             this.friend.Position = new Location(attackerNewCoords.Y, attackerNewCoords.X);
             this.enemy.Position = new Location(defenderNewCoords.Y, defenderNewCoords.X);

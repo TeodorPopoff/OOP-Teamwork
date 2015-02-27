@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -34,13 +33,13 @@ namespace TheQuest
         public void EnqueueForRendering(GameObject obj)
         {
             string symbol = obj.Symbol;
-            if (obj is ThorinTeam)
+            if (obj is ThorinTeam || obj is Dwarf)
             {
                 symbol = obj.Symbol;
             }
             else if (obj is Enemy || obj is Friend || obj is Item)
             {
-                symbol = obj.HiddenSymbol;
+                symbol = obj.Symbol;
             }
             else
             {
@@ -62,7 +61,7 @@ namespace TheQuest
                 {
                     symbol = obj.Symbol;
                 }
-                else if (obj is Enemy || obj is Friend || obj is Item)
+                else if (obj is Enemy || (obj is Friend && !(obj is Dwarf)) || obj is Item)
                 {
                     symbol = obj.HiddenSymbol;
                 }

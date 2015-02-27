@@ -20,7 +20,7 @@ namespace TheQuest
             this.Name = name;
             this.Position = position;
             this.IsAlive = true;
-            this.HiddenSymbol = "?";
+            this.HiddenSymbol = "*";
         }
 
         public bool IsAlive
