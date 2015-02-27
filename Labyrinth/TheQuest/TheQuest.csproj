@@ -85,6 +85,7 @@
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\KeyListener.cs" />
     <Compile Include="Objects\MovingObject.cs" />
+    <Compile Include="Objects\Treasure.cs" />
     <Compile Include="Objects\Wall.cs" />
     <Compile Include="TheQuest.cs" />
     <Compile Include="Enumerations\Direction.cs" />

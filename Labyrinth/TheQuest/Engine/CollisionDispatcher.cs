@@ -56,5 +56,17 @@ namespace TheQuest
 
             return null;
         }
+
+        public static bool SeeForCollisionWithTreasure(ThorinTeam team, Treasure treasure)
+        {
+            if (team.CanCollideWith(treasure))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

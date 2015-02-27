@@ -31,6 +31,7 @@ namespace TheQuest
         private KeyListener userInterface;
         private ConsoleRenderer battleField;
         private ThorinTeam team;
+        private Treasure treasure;
         private string joinInTeamMessage = null;
 
         public GameEngine(KeyListener userInterface, ConsoleRenderer batleField)
@@ -112,6 +113,10 @@ namespace TheQuest
             else if (obj is Item)
             {
                 this.allItems.Add(obj as Item);
+            }
+            else if (obj is Treasure)
+            {
+                this.treasure = obj as Treasure;
             }
             this.allObjects.Add(obj);
         }
@@ -204,6 +209,53 @@ namespace TheQuest
                     itemToJoin.Name, team.Strength);
                 itemToJoin.IsAlive = false;
             }
+
+            if (CollisionDispatcher.SeeForCollisionWithTreasure(this.team, this.treasure))
+            {
+                Console.Clear();
+                Console.WriteLine("Contragulations, you win the game, you got the treasure, do you want to start again y/n");
+                string command = Console.ReadLine().ToLower();
+
+                if (command == "y")
+                {
+                    Console.Clear();
+                    this.allObjects = new List<GameObject>();
+                    this.allEnemies = new List<Enemy>();
+                    this.allWalls = new List<Wall>();
+                    this.allFriends = new List<Friend>();
+                    this.allItems = new List<Item>();
+                    this.battleField = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);
+
+                    this.InitAllGameObjects();
+                }
+                else
+                {
+                    Environment.Exit(1);
+                }
+            }
+            if (this.team.IsAlive == false)
+            {
+                Console.Clear();
+                Console.WriteLine("Game Over, do you want to start again y/n");
+                string command = Console.ReadLine().ToLower();
+
+                if (command == "y")
+                {
+                    Console.Clear();
+                    this.allObjects = new List<GameObject>();
+                    this.allEnemies = new List<Enemy>();
+                    this.allWalls = new List<Wall>();
+                    this.allFriends = new List<Friend>();
+                    this.allItems = new List<Item>();
+                    this.battleField = new ConsoleRenderer(ConsoleSettings.ConsoleHeight, ConsoleSettings.ConsoleWidth);
+                    
+                    this.InitAllGameObjects();
+                }
+                else
+                {
+                    Environment.Exit(1);
+                }
+            }
         }
 
         /// <summary>
@@ -213,6 +265,8 @@ namespace TheQuest
         public void InitAllGameObjects()
         {
             this.AddObject(new ThorinTeam());
+            this.DrawBorder();
+            CreateTreasure();
             CreateBears();
             CreateDwarves();
             CreateElves();
@@ -222,6 +276,20 @@ namespace TheQuest
             CreateMagicians();
         }
 
+<<<<<<< HEAD
+=======
+        private void CreateTreasure()
+        {
+            this.treasure = new Treasure("Treasure", new Location(ConsoleSettings.ConsoleWidth - 2, ConsoleSettings.ConsoleHeight - 2));
+            this.AddObject(treasure);
+        }
+
+        private void ExecuteCommand()
+        {
+            throw new System.NotImplementedException();
+        }
+
+>>>>>>> origin/master
         /// <summary>
         /// Creates the dwarves...
         /// </summary>
