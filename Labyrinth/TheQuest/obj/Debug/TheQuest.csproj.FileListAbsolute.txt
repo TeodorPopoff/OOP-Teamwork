@@ -23,3 +23,6 @@ C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQues
 C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\bin\Debug\TheQuest.exe
 C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\bin\Debug\TheQuest.pdb
 C:\Users\User\Documents\GitHub\OOP-Teamwork\Labyrinth\TheQuest\obj\Debug\TheQuest.csprojResolveAssemblyReference.cache
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork - Team Durian\Labyrinth\TheQuest\bin\Debug\TheQuest.exe.config
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork - Team Durian\Labyrinth\TheQuest\obj\Debug\TheQuest.exe
+\\psf\Home\Documents\Visual Studio 2015\Projects\OOP-Teamwork - Team Durian\Labyrinth\TheQuest\obj\Debug\TheQuest.pdb

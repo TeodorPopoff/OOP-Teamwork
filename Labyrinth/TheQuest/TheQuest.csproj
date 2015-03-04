@@ -105,6 +105,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Game Description\The Quest Idea.md" />
+    <None Include="Presentation\Presentation.pages" />
+    <None Include="Presentation\The Quest Description.pptx" />
     <None Include="TheQuest_Diagram.cd" />
   </ItemGroup>
   <ItemGroup />
